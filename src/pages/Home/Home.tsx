@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavbarDisplay from '../../components/NavbarDisplay/NavbarDisplay';
-import FooterDisplay from '../../components/NavbarDisplay/FooterDisplay/FooterDisplay';
+import FooterDisplay from '../../components/FooterDisplay/FooterDisplay';
 
 const Home: React.FC = () => {
 
