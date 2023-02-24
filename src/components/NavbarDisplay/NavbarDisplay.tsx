@@ -4,7 +4,7 @@ const NavbarDisplay: React.FC = () => {
   return (<nav className="navbar navbar-expand-md navbar-dark bg-dark">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      <img src="src\logo.PNG" alt="Logo" width="120" height="120" className="d-inline-block align-text-top me-2" />
+      <img src="src\logo.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" />
     </a>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
