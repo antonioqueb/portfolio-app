@@ -7,6 +7,7 @@ import experienceSlice from '../reducers/experience/experienceSlice'
 import contactSlice from '../reducers/contact/contactSlice'
 import certificationSlice from '../reducers/certification/certificationSlice'
 import blogSlice from '../reducers/blog/blogSlice'
+import darkmodeSlices from '../reducers/darkmode/darkmodeSlices'
 
 export const store = configureStore({
     reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
         contact : contactSlice,
         certifications : certificationSlice,
         blog : blogSlice,
+        darkmode : darkmodeSlices
 
     },
   })
