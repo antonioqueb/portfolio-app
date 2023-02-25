@@ -38,7 +38,7 @@ const NavbarDisplay: React.FC = () => {
           <a className="nav-link" href="#">
             <i className="bi bi-github"></i>
           </a>
-          <Switch onChange={handleToggleDarkMode} checked={darkMode} handleDiameter={15} height={20} onColor="#343a40" offColor="#ced4da"  />
+          <Switch onChange={handleToggleDarkMode} checked={darkMode} handleDiameter={15} height={20} onColor="#387373" offColor="#97A6A0"  />
         </div>
       </div>
     </nav>
