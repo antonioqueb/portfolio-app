@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Switch from 'react-switch';
 import { toggleDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 
 const NavbarDisplay: React.FC = () => {
   const dispatch = useDispatch();
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleToggleDarkMode = () => {
     dispatch(toggleDarkMode());
+    setDarkMode(!darkMode);
   };
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-md navbar-${darkMode ? 'dark' : 'light'} bg-${darkMode ? 'dark' : 'light'}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <img src="src\logo.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" />
+          { darkMode ? <img src="src\logo.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" /> : <img src="src\logo-black.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" /> }
         </a>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -35,7 +38,7 @@ const NavbarDisplay: React.FC = () => {
           <a className="nav-link" href="#">
             <i className="bi bi-github"></i>
           </a>
-          <button className="btn btn-primary ms-3" onClick={handleToggleDarkMode}>Dark Mode</button>
+          <Switch onChange={handleToggleDarkMode} checked={darkMode} handleDiameter={15} height={20} onColor="#343a40" offColor="#ced4da"  />
         </div>
       </div>
     </nav>
