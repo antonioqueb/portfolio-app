@@ -43,8 +43,10 @@ const Icon = styled.button<PProps>`
   color: ${({ isDarkMode }) => (isDarkMode ? '#FFFFFF' : '#1C1C1C')};
   background: none;
   border: none;
-  font-size: 1rem;
-  margin-right: 0.3rem;
+  font-size: 1.8rem;
+  margin-right: 0.6rem;
+  display: flex;
+  aling-items: flex-start;
   cursor: pointer;
 
   &:hover {
@@ -62,12 +64,13 @@ const List = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  font-size: 1.2rem;
 `;
 
 const ListItem = styled.li`
   display: flex;
-  align-items: center;
+  align-items: space-between;
   margin-bottom: 0.5rem;
 `;
 
@@ -125,7 +128,6 @@ const FooterDisplay: React.FC = () => {
                 <Icon isDarkMode={isDarkMode} onClick={handleLinkedinClick}>
                   <FaLinkedin />
                 </Icon>
-                <span>LinkedIn</span>
               </Link>
             </ListItem>
             <ListItem>
@@ -133,7 +135,6 @@ const FooterDisplay: React.FC = () => {
                 <Icon isDarkMode={isDarkMode} onClick={handleGithubClick}>
                   <FaGithub />
                 </Icon>
-                <span>GitHub</span>
               </Link>
             </ListItem>
             <ListItem>
@@ -141,7 +142,6 @@ const FooterDisplay: React.FC = () => {
                 <Icon isDarkMode={isDarkMode} onClick={handleTwitterClick}>
                   <FaTwitter />
                 </Icon>
-                <span>Twitter</span>
               </Link>
             </ListItem>
           </List>
