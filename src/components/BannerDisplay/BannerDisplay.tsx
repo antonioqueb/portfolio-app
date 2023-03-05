@@ -16,7 +16,6 @@ const BannerWrapper = styled.div<BannerProps>`
   align-items: center;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'rgb(30,30,30)' : 'white')};
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
-  transition: background-color 0.5s ease, color 0.5s ease;
 `;
 
 // Styled components for the banner title and subtitle
@@ -35,7 +34,7 @@ const Button = styled.a`
   display: space-between;
   padding: 1rem 1.2rem;
   border-radius: 5px;
-  background-color: #4caf50;
+  background-color: #468E99;
   color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
@@ -43,8 +42,10 @@ const Button = styled.a`
   margin: 0 0.5rem;
 
   &:hover {
-    background-color: blue;
-    color: #4caf50;
+    background-color: #ffff;
+    color: black;
+    border: 2px solid black;
+
   }
 `;
 
