@@ -7,6 +7,7 @@ import { useAppSelector } from '../../app/hooks';
 import { selectPosts } from '../../reducers/blog/blogSlice';
 import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import BannerDisplay from '../../components/BannerDisplay/BannerDisplay';
+import AboutmeDisplay from '../../components/AboutmeDisplay/AboutmeDisplay';
 
 
 
@@ -15,6 +16,12 @@ const Home: React.FC = () => {
     <>
       <NavbarDisplay />
       <BannerDisplay />
+      <AboutmeDisplay
+        title="About me"
+        description="Greetings, I'm Antonio - a self-taught programmer with a passion for DevOps and data analysis. At the Ministry of Protection and Urban Security, I lead projects involving data analysis and customized statistics, and use Python, Flask, Django, React.ts, Node.js and TypeScript to develop both back-end and front-end systems."
+        imageSrc="src/antonio-illustration-a.svg"
+/>
+
       <FooterDisplay />
     </>
   );
