@@ -61,7 +61,7 @@ const BannerDisplay: React.FC = () => {
 
   return (
     <BannerWrapper isDarkMode={isDarkMode}>
-      <BannerTitle>Hello, I'm Antonio Queb</BannerTitle>
+      <BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>Hello, I'm Antonio Queb</BannerTitle>
       <BannerSubtitle>A Data-Driven Full-Stack Developer with a passion for problem-solving</BannerSubtitle>
       <ButtonContainer>
         <Button href="#">Dowland CV</Button>

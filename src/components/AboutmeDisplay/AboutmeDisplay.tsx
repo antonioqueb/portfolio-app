@@ -66,7 +66,7 @@ const AboutmeDisplay: React.FC<AboutmeProps> = ({ title, description, imageSrc }
         <Image src={imageSrc} alt="Profile" />
       </ImageContainer>
       <DescriptionContainer isDarkMode={isDarkMode}>
-        <Title
+        <Title style={{ fontSize: '2.5rem', fontWeight: 700 }}
             isDarkMode={isDarkMode}
         >{title}</Title>
         <Description
