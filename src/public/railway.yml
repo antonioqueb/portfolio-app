@@ -1,4 +1,0 @@
-build:
-  commands:
-    - npm run build
-    - cp -r public dist/public

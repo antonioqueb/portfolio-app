@@ -1,0 +1,4 @@
+plugins:
+  - type: postgres
+  - type: static
+    path: ./src/public
