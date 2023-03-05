@@ -21,8 +21,6 @@ const Footer = styled.footer<FooterProps>`
   color: white;
   display: flex;
   text-align: center;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.15);
 `;
@@ -37,6 +35,10 @@ const Section = styled.div<PProps>`
   flex-direction: column;
   justify-content: top;
   align-items: center;
+
+  &:first-child {
+    margin-top: auto;
+  }
 `;
 
 const Icon = styled.button<PProps>`
