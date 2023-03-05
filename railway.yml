@@ -12,20 +12,20 @@ build:
     - name: Build application
       run: |
         yarn build
-        # Copia los archivos estáticos en la carpeta de salida
-        cp -r ./src/public/* ./dist/
-  # Copia los archivos construidos en una carpeta temporal para la siguiente fase
+        # Mueve los archivos construidos a una carpeta temporal
+        mkdir -p /app/tmp && cp -r ./build/* /app/tmp/
+  # Define la carpeta temporal como la salida del build
   output:
     - name: dist
-      path: ./dist
+      path: /app/tmp
 serve:
   steps:
     # Instala http-server
     - name: Install http-server
       run: yarn global add http-server
-    # Sirve la carpeta dist
+    # Sirve la carpeta temporal con http-server
     - name: Start server
-      run: http-server ./dist -p $PORT
+      run: http-server /app/tmp -p $PORT
       env:
         # Configura el puerto de http-server
         PORT: 8080
