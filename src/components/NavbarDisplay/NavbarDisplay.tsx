@@ -1,41 +1,135 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Switch from 'react-switch';
-import { toggleDarkMode } from '../../reducers/darkmode/darkmodeSlices';
+import { toggleDarkMode, selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
+import styled from 'styled-components';
+
+interface HeaderProps {
+  bgColor: string;
+  isDarkMode: boolean;
+}
+
+const Header = styled.header<HeaderProps>`
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+  box-sizing: border-box;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ bgColor, isDarkMode }) => isDarkMode ? '#1C1C1C' : bgColor};
+  padding: 1rem;
+  font-size: 1.28rem;
+
+  a {
+    color: ${({ isDarkMode }) => isDarkMode ? '#FFFFFF' : '#333'};
+  }
+
+  label {
+    color: ${({ isDarkMode }) => isDarkMode ? '#FFFFFF' : '#333'};
+  }
+
+
+
+
+`;
+
+const Nav = styled.nav`
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    font-family: 'Nunito Sans', sans-serif;
+    margin-right: 1.5rem;
+  }
+
+  a {
+    font-family: 'Nunito Sans', sans-serif;
+    text-decoration: none;
+    transition: font-size 0.19s ease-out; // Agregar una transición suave
+  }
+
+  a:hover {
+    font-size: 1.08em; // Ampliar el tamaño de texto en un factor de 1.2
+  }
+`;
+
+
+const Logo = styled.img`
+  width: 100px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+`;
+
+
+
+const SwitchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SwitchLabel = styled.label`
+  font-family: 'Nunito Sans', sans-serif;
+  margin-right: 0.5rem;
+`;
 
 const NavbarDisplay: React.FC = () => {
+  const isDarkMode = useSelector(selectIsDarkMode);
   const dispatch = useDispatch();
-  const [darkMode, setDarkMode] = useState(false);
 
-  const handleToggleDarkMode = () => {
+  const handleThemeChange = () => {
     dispatch(toggleDarkMode());
-    setDarkMode(!darkMode);
   };
 
   return (
-    <nav className={`navbar navbar-expand-md navbar-${darkMode ? 'dark' : 'light'} bg-${darkMode ? 'dark' : 'light'}`} style={{padding: '2vh 2vw'}}>
-      <div className="container-fluid" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <a className="navbar-brand me-auto" href="#">
-          { darkMode ? <img src="src\logo.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" /> : <img src="src\logo-black.svg" alt="Logo" width="80" height="80" className="d-inline-block align-text-top me-2" /> }
-        </a>
-        <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul className="navbar-nav d-flex" style={{justifyContent: 'space-between', alignItems: 'center', width: '30vw'}}>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">About Me</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Contact Me</a>
-            </li>
-          </ul>
-        </div>
-        <div className="d-flex align-items-center">
-          <Switch onChange={handleToggleDarkMode} checked={darkMode} handleDiameter={15} height={20} onColor="#387373" offColor="#97A6A0" />
-        </div>
-      </div>
-    </nav>
+    <Header
+      bgColor={isDarkMode ? '#1C1C1C' : '#FFFFFF'}
+      isDarkMode={isDarkMode}
+    >
+      <Logo src="src\logo.svg" alt="Logo de la marca personal" />
+      <Nav>
+        <ul>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#blog">Blog</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </Nav>
+      <SwitchWrapper>
+        <SwitchLabel htmlFor="dark-mode-switch"></SwitchLabel>
+        <Switch
+          id="dark-mode-switch"
+          onChange={handleThemeChange}
+          checked={isDarkMode}
+          uncheckedIcon={false}
+          checkedIcon={false}
+          onColor="#b3b3b3"
+          offColor="#b3b3b3"
+        />
+      </SwitchWrapper>
+    </Header>
   );
 };
 

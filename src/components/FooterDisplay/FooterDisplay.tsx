@@ -110,7 +110,7 @@ const FooterDisplay: React.FC = () => {
             </ListItem>
             <ListItem>
               <i className="bi bi-envelope-fill"></i>
-              <span>hi@queb.online</span>
+              <span>hello@queb.online</span>
             </ListItem>
             <ListItem>
               <i className="bi bi-geo-alt-fill"></i>
