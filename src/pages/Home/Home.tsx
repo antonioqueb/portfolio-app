@@ -20,7 +20,7 @@ const Home: React.FC = () => {
       <AboutmeDisplay
         title="About me"
         description="Greetings, I'm Antonio - a self-taught programmer with a passion for DevOps and data analysis. At the Ministry of Protection and Urban Security, I lead projects involving data analysis and customized statistics, and use Python, Flask, Django, React.ts, Node.js and TypeScript to develop both back-end and front-end systems."
-        imageSrc="src/public/antonio-illustration-a.svg"
+        imageSrc="./src/assets/antonio-illustration-a.svg"
 />
       <ProjectsDisplay />
       <FooterDisplay />
