@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Switch from 'react-switch';
 import { toggleDarkMode, selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 interface HeaderProps {
   bgColor: string;
@@ -28,10 +30,6 @@ const Header = styled.header<HeaderProps>`
   label {
     color: ${({ isDarkMode }) => isDarkMode ? '#FFFFFF' : '#333'};
   }
-
-
-
-
 `;
 
 const Nav = styled.nav`
@@ -50,14 +48,13 @@ const Nav = styled.nav`
   a {
     font-family: 'Nunito Sans', sans-serif;
     text-decoration: none;
-    transition: font-size 0.19s ease-out; // Agregar una transición suave
+    transition: font-size 0.19s ease-out;
   }
 
   a:hover {
-    font-size: 1.08em; // Ampliar el tamaño de texto en un factor de 1.2
+    font-size: 1.08em;
   }
 `;
-
 
 const Logo = styled.img`
   width: 100px;
@@ -68,8 +65,6 @@ const Logo = styled.img`
     transition: transform 0.2s ease-in-out;
   }
 `;
-
-
 
 const SwitchWrapper = styled.div`
   display: flex;
@@ -82,8 +77,24 @@ const SwitchLabel = styled.label`
 `;
 
 const NavbarDisplay: React.FC = () => {
+  const [darkLogoUrl, setDarkLogoUrl] = useState<string>('');
+  const [lightLogoUrl, setLightLogoUrl] = useState<string>('');
   const isDarkMode = useSelector(selectIsDarkMode);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        const darkLogoResponse = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/3/?format=json');
+        const lightLogoResponse = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/2/?format=json');
+        setDarkLogoUrl(darkLogoResponse.data.galery);
+        setLightLogoUrl(lightLogoResponse.data.galery);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchLogos();
+  }, []);
 
   const handleThemeChange = () => {
     dispatch(toggleDarkMode());
@@ -94,7 +105,10 @@ const NavbarDisplay: React.FC = () => {
       bgColor={isDarkMode ? '#1C1C1C' : '#FFFFFF'}
       isDarkMode={isDarkMode}
     >
-      <Logo src="src\logo.svg" alt="Logo de la marca personal" />
+      <Logo
+        src={isDarkMode ? darkLogoUrl : lightLogoUrl}
+        alt="Logo de la marca personal"
+      />
       <Nav>
         <ul>
           <li>
@@ -106,7 +120,6 @@ const NavbarDisplay: React.FC = () => {
           <li>
             <a href="#skills">Skills</a>
           </li>
-          
           <li>
             <a href="#blog">Blog</a>
           </li>

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import styled from 'styled-components';
+import axios from 'axios';
 
 interface BannerProps {
   isDarkMode: boolean;
+  title?: string;
+  description?: string;
 }
 
 // Styled component for the banner wrapper
@@ -45,7 +48,6 @@ const Button = styled.a`
     background-color: #ffff;
     color: black;
     border: 2px solid black;
-
   }
 `;
 
@@ -58,13 +60,31 @@ const ButtonContainer = styled.div`
 // Banner component that displays the banner wrapper, title, subtitle and contact me button
 const BannerDisplay: React.FC = () => {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
+  const [profile, setProfile] = useState<BannerProps>({isDarkMode});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get<BannerProps>('https://django-server-production-0db9.up.railway.app/api/me/5/?format=json')
+      .then(response => {
+        setProfile(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <BannerWrapper isDarkMode={isDarkMode}>
-      <BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>Hello, I'm Antonio Queb</BannerTitle>
-      <BannerSubtitle>A Data-Driven Full-Stack Developer with a passion for problem-solving</BannerSubtitle>
+    <BannerWrapper isDarkMode={isDarkMode} title={profile?.title} description={profile?.description}>
+      <BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>{profile?.title}</BannerTitle>
+      <BannerSubtitle>{profile?.description}</BannerSubtitle>
       <ButtonContainer>
-        <Button href="#">Dowland CV</Button>
+        <Button href="#">Download CV</Button>
         <Button href="#">Contact me</Button>
       </ButtonContainer>
     </BannerWrapper>
