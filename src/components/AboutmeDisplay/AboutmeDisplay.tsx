@@ -48,7 +48,6 @@ const Title = styled.h1<AboutmeContainerProps>`
   font-size: 3rem;
   margin-bottom: 1rem;
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
-
 `;
 
 const Description = styled.p<AboutmeContainerProps>`

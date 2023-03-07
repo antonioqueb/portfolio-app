@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import NavbarDisplay from '../../components/NavbarDisplay/NavbarDisplay';
@@ -10,18 +11,46 @@ import BannerDisplay from '../../components/BannerDisplay/BannerDisplay';
 import AboutmeDisplay from '../../components/AboutmeDisplay/AboutmeDisplay';
 import ProjectsDisplay from '../../components/ProjectsDisplay/ProjectsDisplay';
 
-
-
 const Home: React.FC = () => {
+  const [imageSrc, setImageSrc] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+
+  const isDarkMode: boolean = useSelector(selectIsDarkMode);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/1/?format=json');
+        const { galery } = response.data;
+        setImageSrc(galery);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchDescription = async () => {
+      try {
+        const response = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/4/?format=json');
+        const { description } = response.data;
+        setDescription(description);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchImage();
+    fetchDescription();
+  }, []);
+
   return (
     <>
       <NavbarDisplay />
       <BannerDisplay />
       <AboutmeDisplay
         title="About me"
-        description="Greetings, I'm Antonio - a self-taught programmer with a passion for DevOps and data analysis. At the Ministry of Protection and Urban Security, I lead projects involving data analysis and customized statistics, and use Python, Flask, Django, React.ts, Node.js and TypeScript to develop both back-end and front-end systems."
-        imageSrc="./src/assets/antonio-illustration-a.svg"
-/>
+        description={description}
+        imageSrc={imageSrc}
+      />
       <ProjectsDisplay />
       <FooterDisplay />
     </>
