@@ -85,7 +85,7 @@ const BannerDisplay: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get<BannerProps>('https://django-server-production-0db9.up.railway.app/api/me/5/?format=json')
+    axios.get<BannerProps>('https://django-server-production-0db9.up.railway.app/api/me/8/?format=json')
       .then(response => {
         setProfile(response.data);
         setLoading(false);
