@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
+import axios from 'axios';
 
 interface AboutmeProps {
+  title?: string;
+  imageSrc?: string;
+  isDarkMode?: boolean;
+}
+
+interface AboutmeData {
   title: string;
   description: string;
   imageSrc: string;
 }
 
 interface AboutmeContainerProps {
-  isDarkMode: boolean;
+  isDarkMode?: boolean;
 }
 
 const AboutmeContainer = styled.div<AboutmeContainerProps>`
@@ -55,23 +60,42 @@ const Description = styled.p<AboutmeContainerProps>`
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+  white-space: pre-line; /* procesar saltos de línea */
 `;
 
-const AboutmeDisplay: React.FC<AboutmeProps> = ({ title, description, imageSrc }) => {
-  const isDarkMode: boolean = useSelector(selectIsDarkMode);
+const AboutmeDisplay: React.FC<AboutmeProps> = ({ title, imageSrc, isDarkMode }) => {
+  const [aboutmeData, setAboutmeData] = React.useState<AboutmeData>({
+    title: '',
+    description: '',
+    imageSrc: '',
+  });
+
+  React.useEffect(() => {
+    const fetchAboutmeData = async () => {
+      try {
+        const response = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/10/?format=json');
+        const response2 = await axios.get('https://django-server-production-0db9.up.railway.app/api/me/1/?format=json');
+        const { description, title} = response.data;
+        const { galery: galery2 } = response2.data;
+        setAboutmeData({ title: title, description, imageSrc: galery2 });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchAboutmeData();
+  }, []);
 
   return (
     <AboutmeContainer isDarkMode={isDarkMode}>
       <ImageContainer>
-        <Image src={imageSrc} alt="Profile" />
+        <Image src={aboutmeData.imageSrc || imageSrc} alt="Profile" />
       </ImageContainer>
       <DescriptionContainer isDarkMode={isDarkMode}>
-        <Title style={{ fontSize: '2.5rem', fontWeight: 700 }}
-            isDarkMode={isDarkMode}
-        >{title}</Title>
-        <Description
-            isDarkMode={isDarkMode}
-        >{description}</Description>
+        <Title style={{ fontSize: '2.5rem', fontWeight: 700 }} isDarkMode={isDarkMode}>
+          {aboutmeData.title || title}
+        </Title>
+        <Description isDarkMode={isDarkMode}>{aboutmeData.description || ''}</Description>
       </DescriptionContainer>
     </AboutmeContainer>
   );
