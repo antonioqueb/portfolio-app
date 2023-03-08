@@ -14,14 +14,24 @@ interface BannerProps {
 const BannerWrapper = styled.div<BannerProps>`
   height: 100vh;
   display: flex;
+  flex-direction: row;
+`;
+
+// Styled component for the left column
+const LeftColumn = styled.div<BannerProps>`
+  flex-basis: 50%;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 2rem;
+
   align-items: center;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'rgb(30,30,30)' : 'white')};
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
+  text-align: center; /* added to center content horizontally */
 `;
 
-// Styled components for the banner title and subtitle
+// Styled component for the banner title and subtitle
 const BannerTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -29,7 +39,9 @@ const BannerTitle = styled.h1`
 
 const BannerSubtitle = styled.h2`
   font-size: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  
+
 `;
 
 // Styled component for the contact me button
@@ -55,9 +67,15 @@ const Button = styled.a`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center; /* added to center content vertically */
 `;
 
-// Banner component that displays the banner wrapper, title, subtitle and contact me button
+// Styled component for the right column
+const RightColumn = styled.div`
+  flex-basis: 50%;
+`;
+
+// Component that displays the banner wrapper, title, subtitle and contact me button
 const BannerDisplay: React.FC = () => {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
   const [profile, setProfile] = useState<BannerProps>({isDarkMode});
@@ -73,7 +91,8 @@ const BannerDisplay: React.FC = () => {
         console.error(error);
         setLoading(false);
       });
-  }, []);
+  },
+   []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -81,12 +100,15 @@ const BannerDisplay: React.FC = () => {
 
   return (
     <BannerWrapper isDarkMode={isDarkMode} title={profile?.title} description={profile?.description}>
-      <BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>{profile?.title}</BannerTitle>
-      <BannerSubtitle>{profile?.description}</BannerSubtitle>
-      <ButtonContainer>
-        <Button href="#">Download CV</Button>
-        <Button href="#">Contact me</Button>
-      </ButtonContainer>
+      <LeftColumn isDarkMode={isDarkMode}>
+        <BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>{profile?.title}</BannerTitle>
+        <BannerSubtitle>{profile?.description}</BannerSubtitle>
+        <ButtonContainer>
+          <Button href="#">Download CV</Button>
+          <Button href="#">Contact me</Button>
+        </ButtonContainer>
+      </LeftColumn>
+      <RightColumn></RightColumn>
     </BannerWrapper>
   );
 };
