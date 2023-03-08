@@ -8,16 +8,15 @@ interface BannerProps {
   isDarkMode: boolean;
   title?: string;
   description?: string;
+  galery?: string;
 }
 
-// Styled component for the banner wrapper
 const BannerWrapper = styled.div<BannerProps>`
   height: 100vh;
   display: flex;
   flex-direction: row;
 `;
 
-// Styled component for the left column
 const LeftColumn = styled.div<BannerProps>`
   flex-basis: 50%;
   display: flex;
@@ -28,10 +27,9 @@ const LeftColumn = styled.div<BannerProps>`
   align-items: center;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'rgb(30,30,30)' : 'white')};
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
-  text-align: center; /* added to center content horizontally */
+  text-align: center;
 `;
 
-// Styled component for the banner title and subtitle
 const BannerTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -40,11 +38,8 @@ const BannerTitle = styled.h1`
 const BannerSubtitle = styled.h2`
   font-size: 1.8rem;
   margin-bottom: 3rem;
-  
-
 `;
 
-// Styled component for the contact me button
 const Button = styled.a`
   display: space-between;
   padding: 1rem 1.2rem;
@@ -63,22 +58,30 @@ const Button = styled.a`
   }
 `;
 
-// Styled component for the container
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center; /* added to center content vertically */
+  align-items: center;
 `;
 
-// Styled component for the right column
-const RightColumn = styled.div`
+const RightColumn = styled.div<BannerProps>`
   flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'rgb(30,30,30)' : 'white')};
+  color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
 `;
 
-// Component that displays the banner wrapper, title, subtitle and contact me button
+const Image = styled.img`
+  width: 100%;
+`;
+
 const BannerDisplay: React.FC = () => {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
-  const [profile, setProfile] = useState<BannerProps>({isDarkMode});
+  const [profile, setProfile] = useState<BannerProps>({ isDarkMode });
+  const [galery, setGalery] = useState<string>('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -91,8 +94,17 @@ const BannerDisplay: React.FC = () => {
         console.error(error);
         setLoading(false);
       });
-  },
-   []);
+  }, []);
+
+  useEffect(() => {
+    axios.get<{ galery: string }>('https://django-server-production-0db9.up.railway.app/api/me/7/?format=json')
+      .then(response => {
+        setGalery(response.data.galery);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -108,7 +120,9 @@ const BannerDisplay: React.FC = () => {
           <Button href="#">Contact me</Button>
         </ButtonContainer>
       </LeftColumn>
-      <RightColumn></RightColumn>
+      <RightColumn isDarkMode={isDarkMode} galery={galery}>
+        {galery && <Image src={galery} alt="galery"  />}
+      </RightColumn>
     </BannerWrapper>
   );
 };
