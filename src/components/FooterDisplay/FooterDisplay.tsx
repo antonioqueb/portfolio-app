@@ -35,6 +35,7 @@ const Section = styled.div<PProps>`
   flex-direction: column;
   justify-content: top;
   align-items: center;
+  
 
   &:first-child {
     margin-top: auto;
@@ -68,12 +69,15 @@ const List = styled.ul`
   flex-direction: column;
   align-items: center;
   font-size: 1.2rem;
+  align-self: flex-start;
+
 `;
 
 const ListItem = styled.li`
   display: flex;
   align-items: space-between;
   margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 `;
 
 const Link = styled.a<PProps>`
