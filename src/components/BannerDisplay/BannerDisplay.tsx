@@ -75,7 +75,7 @@ const RightColumn = styled.div<BannerProps>`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 80%;
 `;
 
 const BannerDisplay: React.FC = () => {

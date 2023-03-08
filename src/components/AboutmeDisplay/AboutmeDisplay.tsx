@@ -26,7 +26,7 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  width: 60%;
+  width: 50%;
 `;
 
 const Image = styled.img`
@@ -48,6 +48,7 @@ const Title = styled.h1<AboutmeContainerProps>`
   font-size: 3rem;
   margin-bottom: 1rem;
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+  align-self: flex-start;
 `;
 
 const Description = styled.p<AboutmeContainerProps>`

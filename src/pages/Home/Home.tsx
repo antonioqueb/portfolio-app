@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       <NavbarDisplay />
       <BannerDisplay />
       <AboutmeDisplay
-        title="About me"
+        title="I'm a developer"
         description={description}
         imageSrc={imageSrc}
       />
