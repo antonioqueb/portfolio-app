@@ -1,80 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Switch from 'react-switch';
 import { toggleDarkMode, selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
-import styled from 'styled-components';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import {Styled } from './NavbarStyled';
 
 interface HeaderProps {
   bgColor: string;
   isDarkMode: boolean;
 }
-
-const Header = styled.header<HeaderProps>`
-  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
-  box-sizing: border-box;
-  margin: 0.5rem;
-  padding: 0.3rem;
-  font-family: 'Nunito Sans', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${({ bgColor, isDarkMode }) => isDarkMode ? '#1C1C1C' : bgColor};
-  padding: 1.3rem;
-  font-size: 1.28rem;
-
-  a {
-    color: ${({ isDarkMode }) => isDarkMode ? '#FFFFFF' : '#333'};
-  }
-
-  label {
-    color: ${({ isDarkMode }) => isDarkMode ? '#FFFFFF' : '#333'};
-  }
-`;
-
-const Nav = styled.nav`
-  ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    font-family: 'Nunito Sans', sans-serif;
-    margin-right: 4.9rem;
-  }
-
-  a {
-    font-family: 'Nunito Sans', sans-serif;
-    text-decoration: none;
-    transition: font-size 0.19s ease-out;
-  }
-
-  a:hover {
-    font-size: 1.08em;
-  }
-`;
-
-const Logo = styled.img`
-  width: 100px;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-  }
-`;
-
-const SwitchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const SwitchLabel = styled.label`
-  font-family: 'Nunito Sans', sans-serif;
-  margin-right: 0.5rem;
-`;
 
 const NavbarDisplay: React.FC = () => {
   const [darkLogoUrl, setDarkLogoUrl] = useState<string>('');
@@ -101,33 +35,33 @@ const NavbarDisplay: React.FC = () => {
   };
 
   return (
-    <Header
+    <Styled.Header
       bgColor={isDarkMode ? '#1C1C1C' : '#FFFFFF'}
       isDarkMode={isDarkMode}
     >
-      <Logo
+      <Styled.Logo
         src={isDarkMode ? darkLogoUrl : lightLogoUrl}
         alt="Logo de la marca personal"
       />
-      <Nav>
+      <Styled.Nav>
         <ul>
           <li>
-            <a href="#about">About</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#about">About</a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#projects">Projects</a>
           </li>
       
           <li>
-            <a href="#blog">Blog</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#blog">Blog</a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#contact">Contact</a>
           </li>
         </ul>
-      </Nav>
-      <SwitchWrapper>
-        <SwitchLabel htmlFor="dark-mode-switch"></SwitchLabel>
+      </Styled.Nav>
+      <Styled.SwitchWrapper>
+        <Styled.SwitchLabel htmlFor="dark-mode-switch"></Styled.SwitchLabel>
         <Switch
           id="dark-mode-switch"
           onChange={handleThemeChange}
@@ -136,9 +70,15 @@ const NavbarDisplay: React.FC = () => {
           checkedIcon={false}
           onColor="#b3b3b3"
           offColor="#b3b3b3"
+          onHandleColor="#333"
+          offHandleColor="#FFFFFF"
+          handleDiameter={20}
+          height={20}
+          width={40}
+
         />
-      </SwitchWrapper>
-    </Header>
+      </Styled.SwitchWrapper>
+    </Styled.Header>
   );
 };
 
