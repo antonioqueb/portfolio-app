@@ -472,7 +472,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <ProjectsContainer isDarkMode={isDarkMode}>
+    <ProjectsContainer  id="projects" isDarkMode={isDarkMode}>
       <br/>
       <TitleP style={{ fontSize: '2.5rem', fontWeight: 700 }} isDarkMode={isDarkMode}>Projects</TitleP>
       <TitleP style={{ fontSize: '1.5rem', fontWeight: 400 }} isDarkMode={isDarkMode}>Here you will find my latest projects.</TitleP>

@@ -87,7 +87,7 @@ const AboutmeDisplay: React.FC<AboutmeProps> = ({ title, imageSrc, isDarkMode })
   }, []);
 
   return (
-    <AboutmeContainer isDarkMode={isDarkMode}>
+    <AboutmeContainer id="about" isDarkMode={isDarkMode}>
       <ImageContainer>
         <Image src={aboutmeData.imageSrc || imageSrc} alt="Profile" />
       </ImageContainer>

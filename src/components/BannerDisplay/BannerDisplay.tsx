@@ -64,6 +64,8 @@ const Button = styled.a<ButtonProps>`
   text-decoration: none;
   color: white;
   margin-bottom: 2rem;
+  color: #fffff;
+
 
   strong {
     z-index: 2;
@@ -87,6 +89,8 @@ const Button = styled.a<ButtonProps>`
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease-out;
+    color: #fffff;
+
   }
 
   strong:hover::after {
@@ -102,6 +106,8 @@ const Button = styled.a<ButtonProps>`
     transition: 0.5s;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
+    color: #fffff;
+
   }
 
   #glow {
@@ -128,11 +134,14 @@ const Button = styled.a<ButtonProps>`
 
   &:hover #container-stars {
     z-index: 1;
-    background-color: #212121;
+    background-color: #fffff;
+    color: #fffff;
+
   }
 
   &:hover {
     transform: scale(1.1);
+    color: #fffff;
   }
 
   &:active {
@@ -140,6 +149,7 @@ const Button = styled.a<ButtonProps>`
     background-origin: border-box;
     background-clip: content-box, border-box;
     animation: none;
+    color: #fffff;
 
     .circle {
       background: #FE53BB;
@@ -162,6 +172,7 @@ const Button = styled.a<ButtonProps>`
       animation: animStarRotate 90s linear infinite;
       background-image: radial-gradient(#ffffff 1px, transparent 1%);
       background-size: 50px 50px;
+      color: #fffff;
     }
 
     &::before {
@@ -176,6 +187,7 @@ const Button = styled.a<ButtonProps>`
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;
+  color: #fffff;
 }
 }
 
