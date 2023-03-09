@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const isDarkMode = useSelector(selectIsDarkMode);
 
   return (
-    <div className={`App ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+    <div className={isDarkMode ? 'bg-dark' : 'light'}>
       <Home />
     </div>
   );

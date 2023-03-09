@@ -1,182 +1,165 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
-import styled from 'styled-components';
+import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-interface SkillProps {
+
+// Define la interfaz de las imágenes
+interface Skill {
+  id: number;
+  name: string;
   logo_url: string;
-  isDarkMode?: boolean;
+  experience: string;
 }
-
 interface TitleProps {
   isDarkMode: boolean;
 }
-
-interface SlideshowProps {
-  index: number;
-  maxIndex: number;
-  maxWidth: number;
+// Define la interfaz del estado del carrusel
+interface CarouselState {
+  skills: Skill[];
+  currentIndex: number;
 }
 
-interface SlideProps {
-  isActive: boolean;
-  onClick: () => void;
-}
+// Estilos del carrusel
 
-const SliderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0 10%;
-`;
-
-const Slideshow = styled.div<SlideshowProps>`
-  display: flex;
-  flex-direction: row;
-  transition: transform 0.5s ease;
-  transform: translateX(${(props) => -props.index * 200}px);
-  margin: 0 0 2rem 0;
-  padding: 0 0 2rem 0;
-  width: ${(props) => props.index === props.maxIndex ? `${props.maxWidth + 200}px` : `${props.maxWidth}px`};
-`;
-
-
-const Slide = styled.div<SlideProps>`
-  background-color: ${({ isActive }) => isActive ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  transition: all 0.5s ease;
-  cursor: pointer;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const Logo = styled.img`
-  max-width: 50%;
-  max-height: 50%;
-  object-fit: contain;
-  transform: scale(1.0);
-  transition: transform 0.5s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
-const PTitle = styled.div<TitleProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0 2rem 0;
-  color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
+const Title = styled.h1<TitleProps>`
   text-align: center;
+  font-size: 2rem;
+  color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+  margin: 2rem 0;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
 `;
 
-const Slider = () => {
-    const [skills, setSkills] = useState<SkillProps[]>([]);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const isDarkMode = useSelector(selectIsDarkMode);
-    const intervalRef = useRef<number>();
-    const sliderContainerRef = useRef<HTMLDivElement>(null);
+
+
+const Container = styled.div<{ isDarkMode: boolean }>`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+
+`;
+
+const LogoContainer = styled.div<{ isDarkMode: boolean }>`
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  margin: auto;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+
+`;
+
+const Logo = styled.img<{ isDarkMode: boolean }>`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
   
-    const fetchSkills = async () => {
-      try {
-        const response = await axios.get<SkillProps[]>(
-          'https://django-server-production-0db9.up.railway.app/api/skill/?format=json'
-        );
-        const repeatedSkills = [...response.data, ...response.data, ...response.data, ...response.data, ...response.data, ...response.data];
-        setSkills(repeatedSkills);
-      } catch (error) {
+`;
+
+const Button = styled.button`
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 10px;
+`;
+
+const Background = styled.div<{ isDarkMode: boolean }>`
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+  width: 100%;
+  height: 100%;
+
+
+`;
+
+
+// Componente del carrusel
+const Carousel: React.FC = () => {
+  const isDarkMode = useSelector(selectIsDarkMode);
+  const [state, setState] = useState<CarouselState>({
+    skills: [],
+    currentIndex: 0,
+  });
+
+  useEffect(() => {
+    // Obtiene las imágenes con Axios
+    axios.get<Skill[]>('https://django-server-production-0db9.up.railway.app/api/skill/')
+      .then((response) => {
+        setState({
+          ...state,
+          skills:[...response.data, ...response.data, ...response.data]
+        });
+      })
+      .catch((error) => {
         console.error(error);
-      }
-    };
-  
-    useEffect(() => {
-      fetchSkills();
-    }, []);
-  
-    useEffect(() => {
-        const handleScroll = () => {
-            const sliderContainer = sliderContainerRef.current;
-            if (sliderContainer) {
-              const scrollLeft = sliderContainer.scrollLeft;
-              const slideWidth = sliderContainer.clientWidth;
-              const activeIndex = Math.floor(scrollLeft / slideWidth);
-              setActiveIndex(activeIndex);
-            }
-          };
-          
-      sliderContainerRef.current?.addEventListener('scroll', handleScroll);
-      return () => sliderContainerRef.current?.removeEventListener('scroll', handleScroll);
-    }, [scrollPosition]);
-  
-    useEffect(() => {
-      if (!isPaused) {
-        const interval = setInterval(() => {
-          setActiveIndex((prevIndex) =>
-            prevIndex === skills.length - 1 ? 0 : prevIndex + 1
-          );
-        }, 3000);
-        intervalRef.current = interval;
-        return () => clearInterval(interval);
-      }
-    }, [skills, isPaused]);
-  
-    const handlePrevClick = () => {
-      setActiveIndex((prevIndex) =>
-        prevIndex === 0 ? skills.length - 1 : prevIndex - 1
-      );
-    };
-  
-    const handleNextClick = () => {
-      setActiveIndex((prevIndex) => {
-        const nextIndex = prevIndex + 1;
-        return nextIndex % skills.length;
       });
-    };
-  
-    const handleSlideClick = (index: number) => {
-      setIsPaused(true);
-      setActiveIndex(index);
-    };
-  
-    const maxIndex = skills.length - 1;
-    const maxWidth = (skills.length - 1) * 200;
-  
-    return (
-      <>
-        <PTitle isDarkMode={isDarkMode}>
-          <h1>My Skills</h1>
-        </PTitle>
-        <SliderContainer ref={sliderContainerRef}>
-          <Slideshow index={activeIndex} maxIndex={maxIndex} maxWidth={maxWidth}>
-            {skills.map(({ logo_url }, index) => (
-              <Slide
-                key={logo_url}
-                isActive={index === activeIndex}
-                onClick={() => handleSlideClick(index)}
-              >
-                <Logo src={logo_url} />
-              </Slide>
-            ))}
-          </Slideshow>
-        </SliderContainer>
-      </>
-    );
+  }, []);
+
+  // Maneja el evento del botón derecho
+  const handleNext = () => {
+    const newIndex = state.currentIndex + 4;
+    setState({
+      ...state,
+      currentIndex: newIndex < state.skills.length ? newIndex : state.currentIndex,
+    });
   };
 
-export default Slider;
-  
+  // Maneja el evento del botón izquierdo
+  const handlePrev = () => {
+    const newIndex = state.currentIndex - 4;
+    setState({
+      ...state,
+      currentIndex: newIndex >= 0 ? newIndex : state.currentIndex,
+    });
+  };
+
+  return (
+    <Background isDarkMode={isDarkMode}>
+      <Title style={{ fontSize: '2.5rem', fontWeight: 700 }} isDarkMode={isDarkMode}
+      
+      >
+        
+        </Title>
+        <>
+          <ButtonContainer>
+            <Button onClick={handlePrev}>&lt;</Button>
+            <Button onClick={handleNext}>&gt;</Button>
+          </ButtonContainer>
+          <Container
+            isDarkMode={isDarkMode}
+          >
+            {state.skills.slice(state.currentIndex, state.currentIndex + 4).map((skill) => (
+              <LogoContainer key={skill.id} isDarkMode={isDarkMode} >
+                <Logo src={skill.logo_url} alt={skill.name} isDarkMode={isDarkMode}/>
+              </LogoContainer>
+            ))}
+          </Container>
+
+        </> 
+    </Background>
+    
+  );
+};
+
+export default Carousel;

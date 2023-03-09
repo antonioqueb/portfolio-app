@@ -7,7 +7,7 @@ import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import BannerDisplay from '../../components/BannerDisplay/BannerDisplay';
 import AboutmeDisplay from '../../components/AboutmeDisplay/AboutmeDisplay';
 import ProjectsDisplay from '../../components/ProjectsDisplay/ProjectsDisplay';
-import Slider from '../../components/SkillDisplay/SkillDisplay';
+import Carousel from '../../components/SkillDisplay/SkillDisplay';
 
 const Home: React.FC = () => {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       <NavbarDisplay />
       <BannerDisplay />
       <AboutmeDisplay isDarkMode={isDarkMode} />
-      <Slider />
+      <Carousel />
       <ProjectsDisplay />
       <FooterDisplay />
     </>

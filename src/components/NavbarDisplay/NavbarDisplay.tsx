@@ -20,7 +20,7 @@ const Header = styled.header<HeaderProps>`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ bgColor, isDarkMode }) => isDarkMode ? '#1C1C1C' : bgColor};
-  padding: 1rem;
+  padding: 1.3rem;
   font-size: 1.28rem;
 
   a {
@@ -42,7 +42,7 @@ const Nav = styled.nav`
 
   li {
     font-family: 'Nunito Sans', sans-serif;
-    margin-right: 1.5rem;
+    margin-right: 4.9rem;
   }
 
   a {
@@ -117,9 +117,7 @@ const NavbarDisplay: React.FC = () => {
           <li>
             <a href="#projects">Projects</a>
           </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
+      
           <li>
             <a href="#blog">Blog</a>
           </li>
