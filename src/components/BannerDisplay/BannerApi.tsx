@@ -12,11 +12,11 @@ export interface GaleryResponse {
 }
 
 export const fetchBanner = async (): Promise<BannerProps> => {
-  const response = await axios.get<BannerProps>('https://django-server-production-0db9.up.railway.app/api/me/8/?format=json');
+  const response = await axios.get<BannerProps>('http://192.168.1.65:8088/api/me/4/?format=json');
   return response.data;
 };
 
 export const fetchGalery = async (): Promise<string> => {
-  const response = await axios.get<GaleryResponse>('https://django-server-production-0db9.up.railway.app/api/me/7/?format=json');
+  const response = await axios.get<GaleryResponse>('http://192.168.1.65:8088/api/me/3/?format=json');
   return response.data.galery;
 };

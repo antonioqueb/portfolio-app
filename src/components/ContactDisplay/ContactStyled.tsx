@@ -1,68 +1,57 @@
-import React from 'react';
 import styled from 'styled-components';
 
-interface ContactDisplayProps {
-  className?: string;
-}
-
-interface StyledButtonProps {
+interface StyledProps {
   isDarkMode: boolean;
 }
 
-export  const Styles = {
+export const ContactFormWrapper = styled.div<StyledProps>`
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#222831' : '#ffffff')};
+  color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+`;
 
-  ContactFormWrapper: styled.div<StyledButtonProps>`
-    background-color: ${({ isDarkMode }) => (isDarkMode ? '#111' : '#f2f2f2')};
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  `,
-  Heading: styled.span<StyledButtonProps>`
-    font-size: 24px;
-    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : 'black')};
-    margin-bottom: 12px;
-    font-weight: bold;
-    display: block;
-  `,
-  Form: styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-  `,
-  Label: styled.label<StyledButtonProps>`
-    margin-bottom: 10px;
-    color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
-    mix-blend-mode: difference;
-  `,
-  TextArea: styled.textarea`
-    resize: none;
-    height: 80px;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-family: inherit;
-    font-size: inherit;
-  `,
-  Input: styled.input`
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-  `,
-  SubmitButton: styled.button<{ isDarkMode: boolean }>`
+export const Heading = styled.h2<StyledProps>`
   display: flex;
+  color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
+  justify-content: center;
+  align-items: center;
+
+`;
+
+export const Form = styled.form``;
+
+export const Label = styled.label<StyledProps>`
+  color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
+`;
+
+export const Input = styled.input<StyledProps>`
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#393e46' : '#f1f1f1')};
+  color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+
+export const TextArea = styled.textarea<StyledProps>`
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#393e46' : '#f1f1f1')};
+  color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 1rem;
+  resize: none;
+`;
+
+export const SubmitButton = styled.button<StyledProps>`
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   justify-content: center;
   align-items: center;
   width: 13rem;
@@ -77,31 +66,22 @@ export  const Styles = {
   background-origin: border-box;
   background-clip: content-box, border-box;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
-  margin: 0 1rem;
   text-decoration: none;
   color: white;
-  margin-bottom: 2rem;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
 
-  a {
-    text-decoration: none;
-    color: white;
-  }
+
 
   strong {
     z-index: 2;
-    font-family: 'Avalon Personal Use', cursive;
     font-size: 12px;
     letter-spacing: 5px;
     color: #FFFFFF;
     text-shadow: 0 0 4px white;
     text-decoration: none;
     position: relative;
-  }
+}
 
-  strong::after {
+strong::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -112,14 +92,18 @@ export  const Styles = {
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease-out;
-  }
+    color: #fffff;
 
-  strong:hover::after {
+}
+
+strong:hover::after {
     transform: scaleX(1);
-  }
+}
 
-  #container-stars {
-    position: fixed;
+#container-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -127,128 +111,160 @@ export  const Styles = {
     transition: 0.5s;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
-  }
+    color: #fffff;
 
-  #glow {
+}
+
+#glow {
     position: absolute;
     display: flex;
     width: 12rem;
 
     .circle {
-      width: 100%;
-      height: 30px;
-      filter: blur(2rem);
-      animation: pulse_3011 4s infinite;
-      z-index: -1;
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
     }
 
     .circle:nth-of-type(1) {
-      background: rgba(254, 83, 186, 0.636);
+    background: rgba(254, 83, 186, 0.636);
     }
 
     .circle:nth-of-type(2) {
-      background: rgba(142, 81, 234, 0.704);
+    background: rgba(142, 81, 234, 0.704);
     }
-  }
+}
 
-  &:hover #container-stars {
+&:hover #container-stars {
     z-index: 1;
-    background-color: #212121;
-  }
+    background-color: #fffff;
+    color: #fffff;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+}
 
-  &:active {
+&:hover {
+    transform: scale(1.2);
+    color: #fffff;
+}
+
+&:active {
     border: double 4px #FE53BB;
     background-origin: border-box;
     background-clip: content-box, border-box;
     animation: none;
+    color: #fffff;
 
     .circle {
-      background: #FE53BB;
+    background: #FE53BB;
     }
-  }
+}
 
-  #stars {
+#stars {
     position: relative;
     background: transparent;
     width: 200rem;
     height: 200rem;
 
     &::after {
-      content: "";
-      position: absolute;
-      top: -10rem;
-      left: -100rem;
-      width: 100%;
-      height: 100%;
-      animation: animStarRotate 90s linear infinite;
-      background-image: radial-gradient(#ffffff 1px, transparent 1%);
-      background-size: 50px 50px;
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    color: #fffff;
     }
 
     &::before {
-      content: "";
-      position:
-      absolute;
-      top: 0;
-      left: -50%;
-      width: 170%;
-      height: 500%;
-      animation: animStar 60s linear infinite;
-      background-image: radial-gradient(#ffffff 1px, transparent 1%);
-      background-size: 50px 50px;
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes animStar {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-135rem);
-    }
-  }
-
-  @keyframes animStarRotate {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0);
-    }
-  }
-
-  @keyframes gradient_301 {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  @keyframes pulse_3011 {
-    0% {
-      transform: scale(0.75);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    }
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-    100% {
-      transform: scale(0.75);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-  }
-`,
+    content: "";
+    position:
+    absolute;
+top: 0;
+left: -50%;
+width: 170%;
+height: 500%;
+animation: animStar 60s linear infinite;
+background-image: radial-gradient(#ffffff 1px, transparent 1%);
+background-size: 50px 50px;
+opacity: 0.5;
+color: #fffff;
+}
 }
 
+@keyframes animStar {
+from {
+    transform: translateY(0);
+}
+to {
+    transform: translateY(-135rem);
+}
 
+}
+
+@keyframes animStarRotate {
+from {
+    transform: rotate(360deg);
+}
+
+to {
+    transform: rotate(0);
+}
+}
+
+@keyframes gradient_301 {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+}
+
+@keyframes pulse_3011 {
+0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+}
+70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+}
+
+100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+}
+`;
+
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 1rem;
+`;
+
+export const FormContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 30%;
+  min-width: 300px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+`;

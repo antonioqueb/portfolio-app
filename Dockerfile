@@ -1,15 +1,24 @@
+# Dockerfile para la aplicación React
+
 FROM node:16-alpine
 
-RUN npm install -g ts-node
-
 # Crea un directorio para la aplicación
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copia los archivos de la aplicación
 COPY package*.json ./
 
-COPY . .
-
-
-# Instala las dependencias de la aplicación
+# Instala las dependencias
 RUN npm install
+
+# Copia el resto de los archivos de la aplicación
+COPY ./ ./
+
+# Construye la aplicación
+RUN npm run build
+
+# Expone el puerto 3000
+EXPOSE 3000
+
+# Comando para iniciar la aplicación
+CMD ["npm", "run", "serve"]

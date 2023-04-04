@@ -17,7 +17,7 @@ interface Project {
   }
   
   export const fetchProjects = (): Promise<Project[]> => {
-    return fetch("https://django-server-production-0db9.up.railway.app/api/project/?format=json")
+    return fetch("http://192.168.1.65:8088/api/project/?format=json")
       .then((response) => response.json())
   };
   
