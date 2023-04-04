@@ -17,7 +17,7 @@ interface Project {
   }
   
   export const fetchProjects = (): Promise<Project[]> => {
-    return fetch("http://192.168.1.65:8088/api/project/?format=json")
+    return fetch("http://20.77.66.228:8088/api/project/?format=json")
       .then((response) => response.json())
   };
   

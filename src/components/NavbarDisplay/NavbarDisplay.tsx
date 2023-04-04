@@ -19,8 +19,8 @@ const NavbarDisplay: React.FC = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const darkLogoResponse = await axios.get('http://192.168.1.65:8088/api/me/2/?format=json');
-        const lightLogoResponse = await axios.get('http://192.168.1.65:8088/api/me/1/?format=json');
+        const darkLogoResponse = await axios.get('http://20.77.66.228:8088/api/me/2/?format=json');
+        const lightLogoResponse = await axios.get('http://20.77.66.228:8088/api/me/1/?format=json');
         setDarkLogoUrl(darkLogoResponse.data.galery);
         setLightLogoUrl(lightLogoResponse.data.galery);
       } catch (error) {
