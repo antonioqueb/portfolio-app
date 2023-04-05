@@ -1,1 +1,36 @@
 node_modules
+
+# Archivos y directorios de sistema
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+
+# Archivos y directorios de dependencias
+node_modules
+package-lock.json
+yarn.lock
+
+# Archivos de configuración
+.vite
+.vitepress
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# Archivos de registro
+npm-debug.log
+yarn-error.log
+logs
+
+# Directorios de construcción y distribución
+dist
+build
+public
+
+# Directorio de pruebas
+__tests__
+
