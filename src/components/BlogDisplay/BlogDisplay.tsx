@@ -70,8 +70,8 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
       <Styled.PostGrid>
         {filteredPosts.map((post, index) => (
           <Styled.Post key={index}>
-            <h2>{post.title}</h2>
-            <p>{post.content.slice(0, 15) + "..."}</p>
+            <h3>{post.title}</h3>
+            <p>{post.content.slice(0, 40) + "..."}</p>
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
