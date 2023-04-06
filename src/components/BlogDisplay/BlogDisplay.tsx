@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Styled } from './BlogStyled';
 import BlogPost from './BlogPost';
+import BlogPostStyled from './BlogPostStyled'; // importa el componente BlogPostStyled
 
 interface Post {
   id: number;
@@ -97,11 +98,11 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
-            <button onClick={() => setPostId(post.id)}>Leer más</button>
+            <button onClick={() => setSelectedPostId(post.id)}>Leer más</button> // actualiza el estado de selectedPostId
           </Styled.Post>
         ))}
       </Styled.PostGrid>
-      {postId && <BlogPost postId={postId} />}
+      {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />} // muestra el componente BlogPost si selectedPostId no es nulo
     </Styled.BlogContainer>
   );
 };
