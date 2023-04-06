@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Styled } from './BlogStyled';
 import BlogPost from './BlogPost';
-import BlogPostStyled from './BlogPostStyled'; // importa el componente BlogPostStyled
+import * as BlogPostStyled from './BlogPostStyled';
 
 interface Post {
   id: number;
@@ -59,7 +59,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
 
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
-      <Styled.Post key={index}>
+      <Post key={index}>
         <h3>{post.title}</h3>
         <p>{post.content.slice(0, 40) + '...'}</p>
         <p>
@@ -70,15 +70,15 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
           <b>Fecha:</b> {post.date_posted}
         </p>
         <button onClick={() => handlePostClick(post.id)}>Leer más</button>
-      </Styled.Post>
+      </Post>
     ));
   };
 
   return (
-    <Styled.BlogContainer isDarkMode={isDarkMode}>
+    <BlogContainer isDarkMode={isDarkMode}>
       <h1>Blog</h1>
       <label htmlFor="categories">Filtrar por categoría:</label>
-      <Styled.CategorySelect
+      <CategorySelect
         id="categories"
         value={selectedCategory}
         onChange={(e) => filterByCategory(e.target.value)}
@@ -89,21 +89,21 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
             {category}
           </option>
         ))}
-      </Styled.CategorySelect>
-      <Styled.PostGrid>
+      </CategorySelect>
+      <PostGrid>
         {filteredPosts.map((post, index) => (
-          <Styled.Post key={index}>
+          <Post key={index}>
             <h3>{post.title}</h3>
             <p>{post.content.slice(0, 40) + "..."}</p>
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
             <button onClick={() => setSelectedPostId(post.id)}>Leer más</button> // actualiza el estado de selectedPostId
-          </Styled.Post>
+          </Post>
         ))}
-      </Styled.PostGrid>
+      </PostGrid>
       {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />} // muestra el componente BlogPost si selectedPostId no es nulo
-    </Styled.BlogContainer>
+    </BlogContainer>
   );
 };
 

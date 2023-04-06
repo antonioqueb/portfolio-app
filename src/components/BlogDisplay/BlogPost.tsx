@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BlogContainer, CategorySelect, PostGrid, Post } from './BlogPostStyled';
+import * as BlogPostStyled from './BlogPostStyled';
+
+
 
 interface Post {
   id: number;
@@ -12,9 +14,12 @@ interface Post {
 }
 
 interface BlogPostProps {
-  id: number;
-  setPostId: (id: number) => void;
-}
+    post: Post;
+    onClick: () => void;
+    postId: number; // Agregamos la propiedad postId
+    setPostId: Dispatch<SetStateAction<number | null>>;
+  }
+  
 
 const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
@@ -38,14 +43,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
   }
 
   return (
-    <BlogPostStyled>
+    <BlogPostStyled.BlogContainer>
       <h1>{post.title}</h1>
       <p><b>Categoría:</b> {post.category}</p>
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
       <button onClick={() => setPostId(0)}>Volver al blog</button>
-    </BlogPostStyled>
+    </BlogPostStyled.BlogContainer>
   );
 };
 
