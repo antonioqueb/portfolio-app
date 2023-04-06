@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BlogPostStyled } from './BlogStyled';
 
 interface Post {
   id: number;
@@ -36,13 +37,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ id }) => {
   }
 
   return (
-    <div>
+    <BlogPostStyled>
       <h1>{post.title}</h1>
       <p><b>Categoría:</b> {post.category}</p>
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
-    </div>
+    </BlogPostStyled>
   );
 };
 
