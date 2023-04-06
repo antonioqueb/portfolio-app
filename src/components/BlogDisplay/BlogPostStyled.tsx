@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlogContainer = styled.div`
+const BlogContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
@@ -31,9 +31,10 @@ export const BlogContainer = styled.div`
     margin: 2rem 0;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   }
-`;
+};
+`
 
-export const CategorySelect = styled.select`
+const CategorySelect = styled.select`
   padding: 10px 15px;
   margin-left: 10px;
   border-radius: 10px;
@@ -53,16 +54,16 @@ export const CategorySelect = styled.select`
     outline: none;
     box-shadow: 0 0 5px #c3c3c3;
   }
-`;
-
-export const PostGrid = styled.div`
+};
+`
+const PostGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 `;
 
-export const Post = styled.div`
+const Post = styled.div`
   background-color: #f2f2f2;
   padding: 1rem;
   border-radius: 15px;
@@ -104,4 +105,7 @@ export const Post = styled.div`
       box-shadow: 0 0 5px #c3c3c3;
     }
   }
-`;
+};`
+
+
+export default { BlogContainer, CategorySelect, PostGrid, Post };
