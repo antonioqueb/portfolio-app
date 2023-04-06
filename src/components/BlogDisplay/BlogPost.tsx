@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BlogPostStyled } from './BlogPostStyled';
+import BlogPostStyled from './BlogPostStyled';
 
 interface Post {
   id: number;
