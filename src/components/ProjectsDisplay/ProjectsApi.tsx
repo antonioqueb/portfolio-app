@@ -17,7 +17,7 @@ interface Project {
   }
   
   export const fetchProjects = (): Promise<Project[]> => {
-    return fetch("https://www.queb.online/api/project/?format=json")
+    return fetch("https://queb.online/api/project/?format=json")
       .then((response) => response.json())
   };
   
