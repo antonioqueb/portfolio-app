@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Styled } from './BlogStyled';
 
 interface Post {
+  id: number;
   title: string;
   content: string;
   category: string;
   image: string;
   date_posted: string;
 }
+
 
 interface BlogDisplayProps {
   isDarkMode?: boolean;
