@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BlogPostStyled } from './BlogStyled';
+import { BlogPostStyled } from './BlogPostStyled';
 
 interface Post {
   id: number;
@@ -13,9 +13,10 @@ interface Post {
 
 interface BlogPostProps {
   id: number;
+  setPostId: (id: number) => void;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ id }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ id }) => {
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
+      <button onClick={() => setPostId(0)}>Volver al blog</button>
     </BlogPostStyled>
   );
 };
