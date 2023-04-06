@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Styled } from './BlogStyled';
+import BlogPost from './BlogPost';
 
 interface Post {
   id: number;
@@ -11,7 +12,6 @@ interface Post {
   date_posted: string;
 }
 
-
 interface BlogDisplayProps {
   isDarkMode?: boolean;
 }
@@ -21,6 +21,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -51,6 +52,27 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
     }
   };
 
+  const handlePostClick = (postId: number) => {
+    setSelectedPostId(postId);
+  };
+
+  const renderPostList = () => {
+    return filteredPosts.map((post, index) => (
+      <Styled.Post key={index}>
+        <h3>{post.title}</h3>
+        <p>{post.content.slice(0, 40) + '...'}</p>
+        <p>
+          <b>Categoría:</b> {post.category}
+        </p>
+        <img src={post.image} alt={post.title} />
+        <p>
+          <b>Fecha:</b> {post.date_posted}
+        </p>
+        <button onClick={() => handlePostClick(post.id)}>Leer más</button>
+      </Styled.Post>
+    ));
+  };
+
   return (
     <Styled.BlogContainer isDarkMode={isDarkMode}>
       <h1>Blog</h1>
@@ -75,10 +97,11 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
-            <a href={`/blog/${post.id}`}>Leer más</a>
+            <button onClick={() => setPostId(post.id)}>Leer más</button>
           </Styled.Post>
         ))}
       </Styled.PostGrid>
+      {postId && <BlogPost postId={postId} />}
     </Styled.BlogContainer>
   );
 };
