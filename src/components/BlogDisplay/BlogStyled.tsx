@@ -1,29 +1,65 @@
 import styled from 'styled-components';
 
-interface BlogContainerProps {
-  isDarkMode?: boolean;
-}
-
 export const Styled = {
-  BlogContainer: styled.div<BlogContainerProps>`
+  BlogContainer: styled.div<{ isDarkMode?: boolean }>`
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins';
+    background-color: ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
+    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
     padding: 2rem;
-    background-color: ${({ isDarkMode }) => (isDarkMode ? '#333' : 'white')};
-    transition: background-color 0.5s ease;
+    border-radius: 15px;
   `,
   CategorySelect: styled.select`
-    margin: 1rem 0;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f2f2f2;
+    font-family: 'Poppins';
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #e1e1e1;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px #c3c3c3;
+    }
   `,
   PostGrid: styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
   `,
-  Post: styled.div<BlogContainerProps>`
-    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#777' : '#ccc')};
-    border-radius: 4px;
+  Post: styled.div`
+    background-color: #f2f2f2;
     padding: 1rem;
-    background-color: ${({ isDarkMode }) => (isDarkMode ? '#444' : 'white')};
-    color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
-    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      color: #333;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
   `,
 };

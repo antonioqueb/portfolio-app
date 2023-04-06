@@ -13,7 +13,7 @@ interface Post {
 interface BlogDisplayProps {
   isDarkMode?: boolean;
 }
-//ko
+
 const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
