@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Styled from './BlogStyled';
 
@@ -11,12 +12,8 @@ interface Post {
   date_posted: string;
 }
 
-interface BlogPostProps {
-  postId: number;
-  setPostId: Dispatch<SetStateAction<number | null>>;
-}
-
-const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
+const BlogPost: React.FC = () => {
+  const { postId } = useParams<{ postId: string }>();
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -44,7 +41,6 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
-      <button onClick={() => setPostId(null)}>Volver al blog</button>
     </Styled.BlogContainer>
   );
 };

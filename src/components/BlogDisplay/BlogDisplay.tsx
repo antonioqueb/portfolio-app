@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { Styled } from './BlogStyled';
-import BlogPost from './BlogPost';
 
 interface Post {
   id: number;
@@ -21,7 +21,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+  const history = useHistory();
 
   useEffect(() => {
     fetchPosts();
@@ -51,26 +51,9 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
       setFilteredPosts(filtered);
     }
   };
-//Hi
-  const handlePostClick = (postId: number) => {
-    setSelectedPostId(postId);
-  };
 
-  const renderPostList = () => {
-    return filteredPosts.map((post, index) => (
-      <Styled.Post key={index}>
-        <h3>{post.title}</h3>
-        <p>{post.content.slice(0, 40) + '...'}</p>
-        <p>
-          <b>Categoría:</b> {post.category}
-        </p>
-        <img src={post.image} alt={post.title} />
-        <p>
-          <b>Fecha:</b> {post.date_posted}
-        </p>
-        <button onClick={() => handlePostClick(post.id)}>Leer más</button>
-      </Styled.Post>
-    ));
+  const handlePostClick = (postId: number) => {
+    history.push(`/blog/${postId}`);
   };
 
   return (
@@ -97,11 +80,10 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
-            <button onClick={() => setSelectedPostId(post.id)}>Leer más</button>
+            <button onClick={() => handlePostClick(post.id)}>Leer más</button>
           </Styled.Post>
         ))}
       </Styled.PostGrid>
-      {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}
     </Styled.BlogContainer>
   );
 };
