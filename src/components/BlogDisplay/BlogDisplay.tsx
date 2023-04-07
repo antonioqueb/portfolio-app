@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Styled } from './BlogStyled';
 
 interface Post {
@@ -21,7 +21,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchPosts();
@@ -53,7 +53,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   };
 
   const handlePostClick = (postId: number) => {
-    history.push(`/blog/${postId}`);
+    navigate(`/blog/${postId}`);
   };
 
   return (
