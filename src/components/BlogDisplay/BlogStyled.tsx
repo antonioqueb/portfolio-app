@@ -36,24 +36,14 @@ export const Styled = {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
   `,
   Post: styled.div`
-    background-color: #fff;
+    background-color: #f2f2f2;
     padding: 1rem;
-    border-radius: 15px;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    h3 {
+    h2 {
       margin-bottom: 1rem;
       font-size: 24px;
       font-weight: bold;
@@ -63,14 +53,13 @@ export const Styled = {
     p {
       margin-bottom: 0.5rem;
       font-size: 16px;
-      color: #666;
+      color: #333;
     }
 
     img {
       max-width: 100%;
-      border-radius: 15px;
+      border-radius: 10px;
       margin-top: 1rem;
-      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     }
   `,
   BlogPostContainer: styled.div<{ isDarkMode?: boolean; loaded: boolean }>`
@@ -94,42 +83,22 @@ export const Styled = {
       text-align: center;
     }
 
-    .post-content {
-      max-width: 800px;
-      width: 100%;
-      font-size: 1.2rem;
-      color: ${({ isDarkMode }) => (isDarkMode ? '#0A0A0A' : '#0a0a0')};
-      line-height: 1.5;
-      text-align: justify;
-  
-      h2 {
-        font-size: 2rem;
-        margin: 2rem 0 1rem 0;
-        color: #333;
-        text-align: center;
-      }
-  
-      p {
-        margin-bottom: 1rem;
-      }
-  
-      ul,
-      ol {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-  
-        li {
-          margin-bottom: 0.5rem;
-        }
-      }
-  
-      img {
-        max-width: 100%;
-        border-radius: 15px;
-        margin: 2rem 0;
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-      }
-    `
-  };
+    // ... (El resto del código)
 
-  export default Styled;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: ${({ isDarkMode }) => (isDarkMode ? '#0A0A0A' : '#0a0a0')};
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+  `
+};
+
+export default Styled;
