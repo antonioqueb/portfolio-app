@@ -6,24 +6,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-`;
-
-const Circle = styled.div`
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
-  transform-style: preserve-3d;
-  animation: ${keyframes`
-    from {
-      transform: translateZ(-25px);
-    }
-    to {
-      transform: rotateX(360deg) translateZ(-25px);
-    }
-  `} 1s linear infinite;
+  background-color: #2C2D35;
 `;
 
 const CircleWrapper = styled.div`
@@ -33,28 +16,42 @@ const CircleWrapper = styled.div`
   transform-style: preserve-3d;
 `;
 
-const Circle1 = styled(Circle)`
+const Circle = styled.div`
   position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transform-style: preserve-3d;
+  animation: ${keyframes`
+    from {
+      transform: rotateY(0deg) translateZ(0);
+    }
+    to {
+      transform: rotateY(360deg) translateZ(-150px);
+    }
+  `} 2s linear infinite;
+`;
+
+const Circle1 = styled(Circle)`
   top: 0;
   left: 0;
+  animation-delay: 0s;
 `;
 
 const Circle2 = styled(Circle)`
-  position: absolute;
   top: 0;
   right: 0;
   animation-delay: 0.5s;
 `;
 
 const Circle3 = styled(Circle)`
-  position: absolute;
   bottom: 0;
   left: 0;
   animation-delay: 1s;
 `;
 
 const Circle4 = styled(Circle)`
-  position: absolute;
   bottom: 0;
   right: 0;
   animation-delay: 1.5s;
