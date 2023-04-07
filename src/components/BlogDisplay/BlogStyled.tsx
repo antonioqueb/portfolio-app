@@ -130,4 +130,6 @@ export const Styled = {
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
       }
     `
-}  
+  };
+
+  export default Styled;
