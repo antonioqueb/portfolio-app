@@ -8,12 +8,14 @@ import AboutmeDisplay from '../../components/AboutmeDisplay/AboutmeDisplay';
 import ProjectsDisplay from '../../components/ProjectsDisplay/ProjectsDisplay';
 import Carousel from '../../components/SkillDisplay/SkillDisplay';
 import ContactDisplay from '../../components/ContactDisplay/ContactDisplay';
+import PreloaderDisplay from '../../components/PreloaderDisplay/PreloaderDisplay'
 
 const Home: React.FC = () => {
   const isDarkMode: boolean = useSelector(selectIsDarkMode);
 
   return (
     <>
+      <PreloaderDisplay/>
       <NavbarDisplay />
       <BannerDisplay />
       <AboutmeDisplay isDarkMode={isDarkMode} />
