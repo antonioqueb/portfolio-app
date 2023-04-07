@@ -13,15 +13,6 @@ const CircleWrapper = styled.div`
   position: relative;
   width: 200px;
   height: 200px;
-  transform-style: preserve-3d;
-  animation: ${keyframes`
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(360deg);
-    }
-  `} 4s linear infinite;
 `;
 
 const Circle = styled.div`
@@ -31,82 +22,93 @@ const Circle = styled.div`
   border-radius: 50%;
   background-color: #F2CB05;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transform-style: preserve-3d;
-  animation: ${keyframes`
-    from {
-      transform: rotateY(0deg) translateZ(0);
-    }
-    to {
-      transform: rotateY(360deg) translateZ(-150px);
-    }
-  `} 2s linear infinite;
 `;
 
 const Circle1 = styled(Circle)`
   top: 0;
-  left: 0;
-  animation-delay: 0s;
+  left: 50%;
+  transform: translateY(-100%);
+  animation: ${keyframes`
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(-100%) rotate(360deg);
+    }
+  `} 2s linear infinite;
 `;
 
 const Circle2 = styled(Circle)`
-  top: 0;
+  top: 50%;
   right: 0;
-  animation-delay: 0.5s;
+  transform: translateX(100%);
+  animation: ${keyframes`
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(100%) rotate(360deg);
+    }
+  `} 2s linear infinite;
 `;
 
 const Circle3 = styled(Circle)`
   bottom: 0;
-  left: 0;
-  animation-delay: 1s;
+  left: 50%;
+  transform: translateY(100%);
+  animation: ${keyframes`
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(100%) rotate(360deg);
+    }
+  `} 2s linear infinite;
 `;
 
 const Circle4 = styled(Circle)`
-  bottom: 0;
-  right: 0;
-  animation-delay: 1.5s;
-`;
-
-const GrowCircle = styled.div`
-  position: absolute;
-  width: 0px;
-  height: 0px;
-  border-radius: 50%;
-  background-color: #F2CB05;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 0;
+  transform: translateX(-100%);
   animation: ${keyframes`
-    from {
-      width: 0px;
-      height: 0px;
-      opacity: 1;
+    0% {
+      transform: translateX(-100%);
     }
-    to {
-      width: 100vw;
-      height: 100vh;
-      opacity: 0;
+    100% {
+      transform: translateX(-100%) rotate(360deg);
     }
-  `} 1.5s ease-out forwards;
+  `} 2s linear infinite;
 `;
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 5000);
-    return () => clearTimeout(timer);
+    const loadCSS = async () => {
+      // Reemplace 'your-css-file.css' con la ruta de su archivo CSS
+      const cssFile = 'your-css-file.css';
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cssFile;
+      document.head.appendChild(link);
+
+      link.onload = () => {
+        setLoading(false);
+      };
+    };
+    
+    loadCSS();
   }, []);
 
   return (
     <Container>
       {loading && (
-        <>
-          <CircleWrapper>
-            <Circle1 />
-            <Circle2 />
-            <Circle3 />
-            <Circle4 />
-          </CircleWrapper>
-          <GrowCircle />
-        </>
+        <CircleWrapper>
+          <Circle1 />
+          <Circle2 />
+          <Circle3 />
+          <Circle4 />
+        </CircleWrapper>
       )}
     </Container>
   );
