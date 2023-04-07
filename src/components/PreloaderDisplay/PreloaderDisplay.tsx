@@ -11,10 +11,17 @@ const Container = styled.div`
 
 const CircleWrapper = styled.div`
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   transform-style: preserve-3d;
-  perspective: 200px;
+  animation: ${keyframes`
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  `} 4s linear infinite;
 `;
 
 const Circle = styled.div`
@@ -22,17 +29,17 @@ const Circle = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #f2cb05;
-  box-shadow: 0px 0px 10px #000000;
+  background-color: #F2CB05;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transform-style: preserve-3d;
   animation: ${keyframes`
     from {
-      transform: rotateY(0deg) rotateX(0deg) translateZ(0);
+      transform: rotateY(0deg) translateZ(0);
     }
     to {
-      transform: rotateY(360deg) rotateX(360deg) translateZ(-150px);
+      transform: rotateY(360deg) translateZ(-150px);
     }
-  `} 4s linear infinite;
+  `} 2s linear infinite;
 `;
 
 const Circle1 = styled(Circle)`
@@ -64,7 +71,7 @@ const GrowCircle = styled.div`
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  background-color: #f2cb05;
+  background-color: #F2CB05;
   transform: translate(-50%, -50%);
   animation: ${keyframes`
     from {
@@ -77,7 +84,7 @@ const GrowCircle = styled.div`
       height: 100vh;
       opacity: 0;
     }
-  `} 2s ease-out forwards;
+  `} 1.5s ease-out forwards;
 `;
 
 const Preloader = () => {
