@@ -39,11 +39,12 @@ const NavbarDisplay: React.FC = () => {
       bgColor={isDarkMode ? '#1C1C1C' : '#FFFFFF'}
       isDarkMode={isDarkMode}
     >
-      <Styled.Logo
-        src={isDarkMode ? darkLogoUrl : lightLogoUrl}
-        alt="Logo de la marca personal"
-        href="#"
-      />
+      <a href="/"> 
+        <Styled.Logo
+          src={isDarkMode ? darkLogoUrl : lightLogoUrl}
+          alt="Logo de la marca personal"
+        />
+      </a> 
       <Styled.Nav>
         <ul>
           <li>
@@ -54,7 +55,7 @@ const NavbarDisplay: React.FC = () => {
           </li>
       
           <li>
-            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="blog">Blog</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="/blog">Blog</a>
           </li>
           <li>
             <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#contact">Contact</a>
