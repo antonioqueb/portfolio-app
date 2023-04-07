@@ -11,22 +11,22 @@ const Container = styled.div`
 const Ellipsis = styled.div`
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 240px; /* 80px * 3 */
+  height: 240px; /* 80px * 3 */
 `;
 
 const EllipsisDot = styled.div`
   position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
+  top: 99px; /* 33px * 3 */
+  width: 39px; /* 13px * 3 */
+  height: 39px; /* 13px * 3 */
   border-radius: 50%;
   background-color: #F2CB05;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 `;
 
 const EllipsisDot1 = styled(EllipsisDot)`
-  left: 8px;
+  left: 24px; /* 8px * 3 */
   animation: ${keyframes`
     0% {
       transform: scale(0);
@@ -38,31 +38,31 @@ const EllipsisDot1 = styled(EllipsisDot)`
 `;
 
 const EllipsisDot2 = styled(EllipsisDot)`
-  left: 8px;
+  left: 24px; /* 8px * 3 */
   animation: ${keyframes`
     0% {
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(24px, 0);
+      transform: translate(72px, 0); /* 24px * 3 */
     }
   `} 0.6s infinite;
 `;
 
 const EllipsisDot3 = styled(EllipsisDot)`
-  left: 32px;
+  left: 96px; /* 32px * 3 */
   animation: ${keyframes`
     0% {
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(24px, 0);
+      transform: translate(72px, 0); /* 24px * 3 */
     }
   `} 0.6s infinite;
 `;
 
 const EllipsisDot4 = styled(EllipsisDot)`
-  left: 56px;
+  left: 168px; /* 56px * 3 */
   animation: ${keyframes`
     0% {
       transform: scale(1);
