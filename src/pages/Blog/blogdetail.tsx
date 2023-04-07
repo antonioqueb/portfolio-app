@@ -9,7 +9,7 @@ const BlogDetail: React.FC = () => {
     return (
       <>
       <NavbarDisplay/>
-      <BlogPost postId={1} setPostId={setId} />
+      <BlogPost postId={1} setPostId={setId}/>
       <FooterDisplay/>
       </>
     );
