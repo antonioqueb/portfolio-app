@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+//hola
 
 export const Styled = {
   BlogContainer: styled.div<{ isDarkMode?: boolean }>`
