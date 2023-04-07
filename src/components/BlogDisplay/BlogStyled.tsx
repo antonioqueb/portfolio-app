@@ -94,7 +94,7 @@ export const Styled = {
       box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     }
   `,
-  BlogPostContainer: styled.div<{ isDarkMode?: boolean, loaded: boolean }>`
+  BlogPostContainer: styled.div<{ isDarkMode?: boolean; loaded: boolean }>`
     max-width: 1200px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
