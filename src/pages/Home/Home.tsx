@@ -15,7 +15,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <PreloaderDisplay/>
       <NavbarDisplay />
       <BannerDisplay />
       <AboutmeDisplay isDarkMode={isDarkMode} />
