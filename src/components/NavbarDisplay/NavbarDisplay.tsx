@@ -48,17 +48,17 @@ const NavbarDisplay: React.FC = () => {
       <Styled.Nav>
         <ul>
           <li>
-            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#about">About</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="/#about">About</a>
           </li>
           <li>
-            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#projects">Projects</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="/#projects">Projects</a>
           </li>
       
           <li>
             <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="/blog">Blog</a>
           </li>
           <li>
-            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="#contact">Contact</a>
+            <a style={{ fontSize: '1.3rem', fontWeight: 700 }} href="/#contact">Contact</a>
           </li>
         </ul>
       </Styled.Nav>
