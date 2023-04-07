@@ -9,6 +9,7 @@ import './index.css';
 import Home from '../src/pages/Home/Home';
 import Blog from '../src/pages/Blog/blog';
 import BlogPost from '../src/components/BlogDisplay/BlogPost';
+import BlogDetail from '../src/pages/Blog/blogdetail';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/blog/:postId" element={<BlogDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
