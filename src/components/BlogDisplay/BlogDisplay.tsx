@@ -74,13 +74,15 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
       </Styled.CategorySelect>
       <Styled.PostGrid>
         {filteredPosts.map((post, index) => (
-          <Styled.Post key={index}>
-            <h3>{post.title}</h3>
-            <p>{post.content.slice(0, 40) + "..."}</p>
-            <p><b>Categoría:</b> {post.category}</p>
-            <img src={post.image} alt={post.title} />
-            <p><b>Fecha:</b> {post.date_posted}</p>
-            <button onClick={() => handlePostClick(post.id)}>Leer más</button>
+          <Styled.Post key={index} onClick={() => handlePostClick(post.id)}>
+            <Styled.PostImageContainer>
+              <img src={post.image} alt={post.title} />
+            </Styled.PostImageContainer>
+            <Styled.PostContent>
+              <h3>{post.title}</h3>
+              <p>{post.content.slice(0, 40) + "..."}</p>
+              <p><b>Fecha:</b> {post.date_posted}</p>
+            </Styled.PostContent>
           </Styled.Post>
         ))}
       </Styled.PostGrid>
