@@ -5,19 +5,19 @@ import { selectIsDarkMode } from './reducers/darkmode/darkmodeSlices';
 import { useSelector } from 'react-redux';
 import './index.css';
 
-//Pages
+// Pages
 import Home from '../src/pages/Home/Home';
 import Blog from '../src/pages/Blog/blog';
 import BlogDetail from '../src/pages/Blog/blogdetail';
 
-//Components
+// Components
 import PreloaderDisplay from '../src/components/PreloaderDisplay/PreloaderDisplay';
 
-//Redux
+// Redux
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
-//Router
+// Router
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
