@@ -21,7 +21,7 @@ const Circle = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #44E3D3;
   transform-style: preserve-3d;
   animation: ${keyframes`
     from {
