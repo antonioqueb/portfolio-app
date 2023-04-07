@@ -26,7 +26,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200); // Ajusta el tiempo de espera según sea necesario
+    const timer = setTimeout(() => setLoading(false), 1600); // Ajusta el tiempo de espera según sea necesario
     return () => clearTimeout(timer);
   }, []);
 
