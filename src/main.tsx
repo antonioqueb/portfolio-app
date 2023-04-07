@@ -8,7 +8,7 @@ import './index.css';
 //Pages
 import Home from '../src/pages/Home/Home';
 import Blog from '../src/pages/Blog/blog';
-import BlogPost from '../src/components/BlogPost/BlogPost';
+import BlogPost from '../src/components/BlogDisplay/BlogPost';
 
 //Redux
 import { Provider } from 'react-redux';
