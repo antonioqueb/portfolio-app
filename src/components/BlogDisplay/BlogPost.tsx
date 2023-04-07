@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
 import Styled from './BlogStyled';
 
@@ -17,16 +16,13 @@ interface BlogPostProps {
   setPostId: Dispatch<SetStateAction<number | null>>;
 }
 
-const BlogPost: React.FC = ({ postId, setPostId }) => {
-  const { postId } = useParams<{ postId: string }>();
+const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
   const [loaded, setLoaded] = useState(false);
-
 
   useEffect(() => {
     fetchPost();
   }, []);
-
 
   useEffect(() => {
     if (post) {
@@ -58,6 +54,5 @@ const BlogPost: React.FC = ({ postId, setPostId }) => {
     </Styled.BlogPostContainer>
   );
 };
-
 
 export default BlogPost;
