@@ -88,7 +88,7 @@ export const Styled = {
     p {
       font-size: 1.2rem;
       margin-bottom: 1rem;
-      color: #555;
+      color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
       text-align: center;
     }
 
