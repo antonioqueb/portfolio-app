@@ -1,22 +1,17 @@
 import React from 'react';
 import NavbarDisplay from '../../components/NavbarDisplay/NavbarDisplay';
 import FooterDisplay from '../../components/FooterDisplay/FooterDisplay';
-import BlogDisplay from '../../components/BlogDisplay/BlogPost';
-
-
-
+import BlogDisplay from '../../components/BlogDisplay/BlogDisplay';
 
 const BlogDetail: React.FC = () => {
   
     return (
       <>
       <NavbarDisplay/>
-      <BlogPost/>
+      <BlogDisplay/>
       <FooterDisplay/>
-        
       </>
     );
-  };
-  
-  export default BlogDetail;
-  
+};
+
+export default BlogDetail;
