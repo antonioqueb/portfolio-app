@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
-import * as BlogPostStyled from './BlogPostStyled';
-
-
+import Styled from './BlogStyled';
 
 interface Post {
   id: number;
@@ -14,14 +12,11 @@ interface Post {
 }
 
 interface BlogPostProps {
-    post: Post;
-    onClick: () => void;
-    postId: number; // Agregamos la propiedad postId
-    setPostId: Dispatch<SetStateAction<number | null>>;
-  }
-  
+  postId: number;
+  setPostId: Dispatch<SetStateAction<number | null>>;
+}
 
-const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -30,7 +25,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
 
   const fetchPost = async () => {
     try {
-      const response = await axios.get<Post>(`https://queb.online/api/posts/${id}/`);
+      const response = await axios.get<Post>(`https://queb.online/api/posts/${postId}/`);
       const post = response.data;
       setPost(post);
     } catch (error) {
@@ -43,14 +38,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ id, setPostId }) => {
   }
 
   return (
-    <BlogPostStyled.BlogContainer>
+    <Styled.BlogContainer>
       <h1>{post.title}</h1>
       <p><b>Categoría:</b> {post.category}</p>
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
-      <button onClick={() => setPostId(0)}>Volver al blog</button>
-    </BlogPostStyled.BlogContainer>
+      <button onClick={() => setPostId(null)}>Volver al blog</button>
+    </Styled.BlogContainer>
   );
 };
 

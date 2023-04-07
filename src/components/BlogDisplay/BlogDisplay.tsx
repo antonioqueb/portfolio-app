@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Styled } from './BlogStyled';
 import BlogPost from './BlogPost';
-import * as BlogPostStyled from './BlogPostStyled';
 
 interface Post {
   id: number;
@@ -75,10 +74,10 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <BlogContainer isDarkMode={isDarkMode}>
+    <Styled.BlogContainer isDarkMode={isDarkMode}>
       <h1>Blog</h1>
       <label htmlFor="categories">Filtrar por categoría:</label>
-      <CategorySelect
+      <Styled.CategorySelect
         id="categories"
         value={selectedCategory}
         onChange={(e) => filterByCategory(e.target.value)}
@@ -89,21 +88,21 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
             {category}
           </option>
         ))}
-      </CategorySelect>
-      <PostGrid>
+      </Styled.CategorySelect>
+      <Styled.PostGrid>
         {filteredPosts.map((post, index) => (
-          <Post key={index}>
+          <Styled.Post key={index}>
             <h3>{post.title}</h3>
             <p>{post.content.slice(0, 40) + "..."}</p>
             <p><b>Categoría:</b> {post.category}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
-            <button onClick={() => setSelectedPostId(post.id)}>Leer más</button> // actualiza el estado de selectedPostId
-          </Post>
+            <button onClick={() => setSelectedPostId(post.id)}>Leer más</button>
+          </Styled.Post>
         ))}
-      </PostGrid>
-      {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />} // muestra el componente BlogPost si selectedPostId no es nulo
-    </BlogContainer>
+      </Styled.PostGrid>
+      {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}
+    </Styled.BlogContainer>
   );
 };
 
