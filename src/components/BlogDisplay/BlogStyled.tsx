@@ -62,38 +62,6 @@ export const Styled = {
       margin-top: 1rem;
     }
   `,
-  BlogPostContainer: styled.div`
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: #ff8c00;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: #555;
-      text-align: center;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 15px;
-      margin: 2rem 0;
-      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-    }
-  `,
   BlogPostContainer: styled.div<{ isDarkMode?: boolean; loaded: boolean }>`
     max-width: 1200px;
     margin: 0 auto;
@@ -116,7 +84,21 @@ export const Styled = {
     }
 
     // ... (El resto del código)
-  `,
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #555;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+  `
 };
 
 export default Styled;
