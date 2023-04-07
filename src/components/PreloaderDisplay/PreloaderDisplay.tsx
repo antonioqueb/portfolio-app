@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+import React, { useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -9,43 +8,76 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const Circle = styled(animated.div)`
-  width: 100px;
-  height: 100px;
+const Circle = styled.div`
+  position: relative;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin: 10px;
+  background-color: #fff;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  animation: ${keyframes`
+    from {
+      transform: translateZ(-25px);
+    }
+    to {
+      transform: rotateX(360deg) translateZ(-25px);
+    }
+  `} 1s linear infinite;
+`;
+
+const CircleWrapper = styled.div`
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+`;
+
+const Circle1 = styled(Circle)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const Circle2 = styled(Circle)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation-delay: 0.5s;
+`;
+
+const Circle3 = styled(Circle)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation-delay: 1s;
+`;
+
+const Circle4 = styled(Circle)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation-delay: 1.5s;
 `;
 
 const Preloader = () => {
-  const [props1, set1] = useSpring(() => ({ transform: 'scale(1)', config: { duration: 500 } }));
-  const [props2, set2] = useSpring(() => ({ transform: 'scale(1)', config: { duration: 500 } }));
-  const [props3, set3] = useSpring(() => ({ transform: 'scale(1)', config: { duration: 500 } }));
+  const [loading, setLoading] = useState(true);
 
-  const animate = () => {
-    set1({ transform: 'scale(2)', config: { duration: 500 } });
-    set2({ transform: 'scale(2)', config: { duration: 500 }, delay: 100 });
-    set3({ transform: 'scale(2)', config: { duration: 500 }, delay: 200 });
-
-    setTimeout(() => {
-      set1({ transform: 'scale(1)', config: { duration: 500 } });
-      set2({ transform: 'scale(1)', config: { duration: 500 }, delay: 100 });
-      set3({ transform: 'scale(1)', config: { duration: 500 }, delay: 200 });
-
-      setTimeout(() => {
-        animate();
-      }, 500);
-    }, 800);
-  };
-
-  React.useEffect(() => {
-    animate();
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <Container>
-      <Circle style={props1} />
-      <Circle style={props2} />
-      <Circle style={props3} />
+      {loading && (
+        <CircleWrapper>
+          <Circle1 />
+          <Circle2 />
+          <Circle3 />
+          <Circle4 />
+        </CircleWrapper>
+      )}
     </Container>
   );
 };
