@@ -12,7 +12,12 @@ interface Post {
   date_posted: string;
 }
 
-const BlogPost: React.FC = () => {
+interface BlogPostProps {
+  postId: number;
+  setPostId: Dispatch<SetStateAction<number | null>>;
+}
+
+const BlogPost: React.FC = ({ postId, setPostId }) => {
   const { postId } = useParams<{ postId: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [loaded, setLoaded] = useState(false);
