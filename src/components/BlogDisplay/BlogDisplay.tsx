@@ -58,7 +58,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
 
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
-      <Post key={index}>
+      <Styled.Post key={index}>
         <h3>{post.title}</h3>
         <p>{post.content.slice(0, 40) + '...'}</p>
         <p>
@@ -69,7 +69,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
           <b>Fecha:</b> {post.date_posted}
         </p>
         <button onClick={() => handlePostClick(post.id)}>Leer más</button>
-      </Post>
+      </Styled.Post>
     ));
   };
 
