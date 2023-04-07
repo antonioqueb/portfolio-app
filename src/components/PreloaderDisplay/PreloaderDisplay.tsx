@@ -6,22 +6,15 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #fff5e5;
+  background-color: #ffffff;
 `;
 
 const CircleWrapper = styled.div`
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   transform-style: preserve-3d;
-  animation: ${keyframes`
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(360deg);
-    }
-  `} 4s linear infinite;
+  perspective: 200px;
 `;
 
 const Circle = styled.div`
@@ -29,16 +22,17 @@ const Circle = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #00635A;
+  background-color: #f2cb05;
+  box-shadow: 0px 0px 10px #000000;
   transform-style: preserve-3d;
   animation: ${keyframes`
     from {
-      transform: rotateY(0deg) translateZ(0);
+      transform: rotateY(0deg) rotateX(0deg) translateZ(0);
     }
     to {
-      transform: rotateY(360deg) translateZ(-150px);
+      transform: rotateY(360deg) rotateX(360deg) translateZ(-150px);
     }
-  `} 2s linear infinite;
+  `} 4s linear infinite;
 `;
 
 const Circle1 = styled(Circle)`
@@ -70,7 +64,7 @@ const GrowCircle = styled.div`
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  background-color: #00635A;
+  background-color: #f2cb05;
   transform: translate(-50%, -50%);
   animation: ${keyframes`
     from {
@@ -83,7 +77,7 @@ const GrowCircle = styled.div`
       height: 100vh;
       opacity: 0;
     }
-  `} 1.5s ease-out forwards;
+  `} 2s ease-out forwards;
 `;
 
 const Preloader = () => {
