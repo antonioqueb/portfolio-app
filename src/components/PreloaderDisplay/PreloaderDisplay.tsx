@@ -6,7 +6,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #2C2D35;
+  background-color: #fff5e5;
 `;
 
 const CircleWrapper = styled.div`
@@ -14,6 +14,14 @@ const CircleWrapper = styled.div`
   width: 200px;
   height: 200px;
   transform-style: preserve-3d;
+  animation: ${keyframes`
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  `} 4s linear infinite;
 `;
 
 const Circle = styled.div`
@@ -21,7 +29,7 @@ const Circle = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #44E3D3;
+  background-color: #00635A;
   transform-style: preserve-3d;
   animation: ${keyframes`
     from {
@@ -57,23 +65,47 @@ const Circle4 = styled(Circle)`
   animation-delay: 1.5s;
 `;
 
+const GrowCircle = styled.div`
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: #00635A;
+  transform: translate(-50%, -50%);
+  animation: ${keyframes`
+    from {
+      width: 0px;
+      height: 0px;
+      opacity: 1;
+    }
+    to {
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+    }
+  `} 1.5s ease-out forwards;
+`;
+
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <Container>
       {loading && (
-        <CircleWrapper>
-          <Circle1 />
-          <Circle2 />
-          <Circle3 />
-          <Circle4 />
-        </CircleWrapper>
+        <>
+          <CircleWrapper>
+            <Circle1 />
+            <Circle2 />
+            <Circle3 />
+            <Circle4 />
+          </CircleWrapper>
+          <GrowCircle />
+        </>
       )}
     </Container>
   );
