@@ -59,10 +59,14 @@ export const StyledBlog = {
     }
 
     img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-top: 1rem;
+      width: 100%;      /* Establece el ancho de la imagen al 100% del contenedor */
+      height: 100px;    /* Establece una altura fija para la imagen */
+      object-fit: cover;/* Asegura que la imagen cubra el área sin deformarse ni desbordarse */
+      border-radius: 19px;
+      margin: 2rem 0;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     }
+    
   `
 };
 
