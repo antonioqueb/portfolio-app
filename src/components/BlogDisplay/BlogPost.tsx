@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
-import Styled from './BlogStyled';
+import StyledPost from './BlogStyledPost';
 
 interface Post {
   id: number;
@@ -46,13 +46,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   }
 
   return (
-    <Styled.BlogPostContainer loaded={loaded}>
+    <StyledPost.BlogPostContainer loaded={loaded}>
       <h1>{post.title}</h1>
       <p><b>Categoría:</b> {post.category}</p>
       <img src={post.image} alt={post.title} />
       <p>{post.content}</p>
       <p><b>Fecha:</b> {post.date_posted}</p>
-    </Styled.BlogPostContainer>
+    </StyledPost.BlogPostContainer>
   );
 };
 

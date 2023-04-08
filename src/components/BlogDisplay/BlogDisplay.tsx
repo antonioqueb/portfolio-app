@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import  Styled  from './BlogStyled';
+import  StyledBlog  from './BlogStyled';
 import BlogPost from './BlogPost';
 
 interface Post {
@@ -48,7 +48,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
 
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
-      <Styled.Post key={index}>
+      <StyledBlog.Post key={index}>
         <img src={post.image} alt={post.title} />
         <>
         <h3>{post.title}</h3>
@@ -56,17 +56,17 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
         
         <button onClick={() => handlePostClick(post.id)}>Leer más</button>
        </>
-      </Styled.Post>
+      </StyledBlog.Post>
     ));
   };
 
   return (
-    <Styled.BlogContainer isDarkMode={isDarkMode}>
-      <Styled.PostGrid>
+    <StyledBlog.BlogContainer isDarkMode={isDarkMode}>
+      <StyledBlog.PostGrid>
         {renderPostList()}
-      </Styled.PostGrid>
+      </StyledBlog.PostGrid>
       {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}
-    </Styled.BlogContainer>
+    </StyledBlog.BlogContainer>
   );
 }
 
