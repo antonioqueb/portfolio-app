@@ -40,37 +40,39 @@ export const StyledBlog = {
     margin-top: 2rem;
   `,
   Post: styled.div<{ isDarkMode?: boolean }>`
-  background-color:  ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+   background-color:  ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
+   padding: 1rem;
+   border-radius: 10px;
+   box-shadow: ${({ isDarkMode }) => (isDarkMode ? '2px 2px 5px rgba(255, 255, 255, 0.3)' : '2px 2px 5px rgba(0, 0, 0, 0.3)')};
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 24px;
-    font-weight: bold;
-    color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
-  }
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 24px;
+      font-weight: bold;
+      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+    }
 
-  p {
-    margin-bottom: 0.5rem;
-    font-size: 16px;
-    color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
-  }
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+    }
 
-  button {
-    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')}; // Agrega esta línea para el color de texto del botón
-  }
+    button {
+      color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+    }
 
-  img {
-    width: 100%;      /* Establece el ancho de la imagen al 100% del contenedor */
-    height: 300px;    /* Establece una altura fija para la imagen */
-    object-fit: cover;/* Asegura que la imagen cubra el área sin deformarse ni desbordarse */
-    border-radius: 19px;
-    margin: 2rem 0;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-  }
-  `
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 19px;
+      margin: 2rem 0;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+`
+
 };
 
 export default StyledBlog;
