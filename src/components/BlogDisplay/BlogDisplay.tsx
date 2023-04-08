@@ -41,16 +41,6 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
     }
   };
 
-  const filterByCategory = (category: string) => {
-    setSelectedCategory(category);
-
-    if (category === '') {
-      setFilteredPosts(posts);
-    } else {
-      const filtered = posts.filter((post) => post.category === category);
-      setFilteredPosts(filtered);
-    }
-  };
 
   const handlePostClick = (postId: number) => {
     setSelectedPostId(postId);
@@ -75,31 +65,16 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
 
   return (
     <Styled.BlogContainer isDarkMode={isDarkMode}>
-      <h1>Blog</h1>
-      <label htmlFor="categories">Filtrar por categoría:</label>
-      <Styled.CategorySelect
-        id="categories"
-        value={selectedCategory}
-        onChange={(e) => filterByCategory(e.target.value)}
-      >
-        <option value="">Todas</option>
-        {categories.map((category, index) => (
-          <option key={index} value={category}>
-            {category}
-          </option>
-        ))}
-      </Styled.CategorySelect>
       <Styled.PostGrid>
-        {filteredPosts.map((post, index) => (
+        {
           <Styled.Post key={index}>
-            <h3>{post.title}</h3>
-            <p>{post.content.slice(0, 40) + "..."}</p>
-            <p><b>Categoría:</b> {post.category}</p>
+            <h1>{post.title}</h1>
+            <p>{post.content.slice(0, 240) + "..."}</p>
             <img src={post.image} alt={post.title} />
             <p><b>Fecha:</b> {post.date_posted}</p>
             <button onClick={() => setSelectedPostId(post.id)}>Leer más</button>
           </Styled.Post>
-        ))}
+        }
       </Styled.PostGrid>
       {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}
     </Styled.BlogContainer>
