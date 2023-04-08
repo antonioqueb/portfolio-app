@@ -12,9 +12,10 @@ interface Post {
 }
 
 interface BlogPostProps {
-  postId: number;
-  setPostId: Dispatch<SetStateAction<number | null>>;
+  postId?: number;
+  setPostId?: Dispatch<SetStateAction<number | null>>;
 }
+
 
 const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
