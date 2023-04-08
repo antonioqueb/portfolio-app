@@ -49,10 +49,13 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
       <Styled.Post key={index}>
+        <img src={post.image} alt={post.title} />
+        <>
         <h3>{post.title}</h3>
         <p>{post.content.slice(0, 210) + '...'}</p>
-        <img src={post.image} alt={post.title} />
+        
         <button onClick={() => handlePostClick(post.id)}>Leer más</button>
+       </>
       </Styled.Post>
     ));
   };
