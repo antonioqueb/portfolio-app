@@ -39,8 +39,8 @@ export const StyledBlog = {
     gap: 2rem;
     margin-top: 2rem;
   `,
-  Post: styled.div`
-    background-color: #f2f2f2;
+  Post: styled.div<{ isDarkMode?: boolean }>`
+    background-color:  ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -49,13 +49,13 @@ export const StyledBlog = {
       margin-bottom: 1rem;
       font-size: 24px;
       font-weight: bold;
-      color: #333;
+      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
     }
 
     p {
       margin-bottom: 0.5rem;
       font-size: 16px;
-      color: #333;
+      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
     }
 
     img {
