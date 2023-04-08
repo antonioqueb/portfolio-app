@@ -66,19 +66,11 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   return (
     <Styled.BlogContainer isDarkMode={isDarkMode}>
       <Styled.PostGrid>
-        
-          <Styled.Post key={index}>
-            <h1>{post.title}</h1>
-            <p>{post.content.slice(0, 240) + "..."}</p>
-            <img src={post.image} alt={post.title} />
-            <p><b>Fecha:</b> {post.date_posted}</p>
-            <button onClick={() => setSelectedPostId(post.id)}>Leer más</button>
-          </Styled.Post>
-        
+        {renderPostList()}
       </Styled.PostGrid>
       {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}
     </Styled.BlogContainer>
   );
-};
+}
 
 export default BlogDisplay;
