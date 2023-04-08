@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-//hola
+
 
 export const Styled = {
+  
   BlogContainer: styled.div<{ isDarkMode?: boolean }>`
     max-width: 1200px;
     margin: 0 auto;

@@ -51,7 +51,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
       setFilteredPosts(filtered);
     }
   };
-//Hi
+
   const handlePostClick = (postId: number) => {
     setSelectedPostId(postId);
   };
