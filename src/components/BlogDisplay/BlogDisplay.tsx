@@ -48,7 +48,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
 
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
-      <StyledBlog.Post key={index}>
+      <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
         <img src={post.image} alt={post.title} />
         <>
         <h3>{post.title}</h3>
@@ -59,7 +59,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
       </StyledBlog.Post>
     ));
   };
-
+  
   return (
     <StyledBlog.BlogContainer isDarkMode={isDarkMode}>
       <StyledBlog.PostGrid>
