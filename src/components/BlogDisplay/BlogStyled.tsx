@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 
@@ -40,10 +41,12 @@ export const StyledBlog = {
   margin-top: 2rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
 `,
-  PostTitle: styled.h3<{ isDarkMode?: boolean }>`
-  font-size: 14px !important;
-  color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+  PostTitle: styled.h3<>`
+  && {
+    font-size: 14px;
+  }
   `,
+
   Post: styled.div<{ isDarkMode?: boolean }>`
    background-color:  ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
    padding: 1rem;
@@ -279,3 +282,5 @@ export const StyledBlog = {
 };
 
 export default StyledBlog;
+
+
