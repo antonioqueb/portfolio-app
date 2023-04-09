@@ -4,12 +4,8 @@ import NavbarDisplay from '../../components/NavbarDisplay/NavbarDisplay';
 import FooterDisplay from '../../components/FooterDisplay/FooterDisplay';
 import BlogPost from '../../components/BlogDisplay/BlogPost';
 
-interface Params {
-  postId: string;
-}
-
 const BlogDetail: React.FC = () => {
-  const { postId } = useParams<Params>();
+  const { postId } = useParams<{ postId: string }>();
   const postIdAsNumber = parseInt(postId, 10);
 
   return (
