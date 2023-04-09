@@ -52,6 +52,7 @@ const renderPostList = () => {
       <img src={post.image} alt={post.title} />
       <>
       <StyledBlog.PostTitle
+        style={{ fontSize: '14px' }}
         isDarkMode={isDarkMode}
         dangerouslySetInnerHTML={{ __html: post.title }}
       />
