@@ -81,10 +81,15 @@ export const StyledPost = {
 
     p {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
       color: dark;
       text-align: left;
     }
+
+    h4 ~ p {
+      margin-top: 2rem;
+    }
+    
+    
   `,
 };
 
