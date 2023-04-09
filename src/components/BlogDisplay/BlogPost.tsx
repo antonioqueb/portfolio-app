@@ -16,14 +16,13 @@ interface BlogPostProps {
   setPostId?: Dispatch<SetStateAction<number | null>>;
 }
 
-
 const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   const [post, setPost] = useState<Post | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [postId]); // Agregar postId como dependencia
 
   useEffect(() => {
     if (post) {
@@ -32,12 +31,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   }, [post]);
 
   const fetchPost = async () => {
-    try {
-      const response = await axios.get<Post>(`https://queb.online/api/posts/${postId}/`);
-      const post = response.data;
-      setPost(post);
-    } catch (error) {
-      console.error('Error fetching post:', error);
+    if (postId) {
+      try {
+        const response = await axios.get<Post>(`https://queb.online/api/posts/${postId}/`);
+        const post = response.data;
+        setPost(post);
+      } catch (error) {
+        console.error('Error fetching post:', error);
+      }
     }
   };
 
