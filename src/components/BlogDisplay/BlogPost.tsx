@@ -41,7 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    const formatter = new Intl.DateTimeFormat('es-ES', {
+    const formatter = new Intl.DateTimeFormat('en-EN', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -80,7 +80,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
       </div>
       <div className="blog-content">
         {formattedContent}
-        <p><b>Fecha:</b> {formatDate(post.date_posted)}</p>
+        <p><b>Date:</b> {formatDate(post.date_posted)}</p>
       </div>
     </StyledPost.BlogPostContainer>
   );
