@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import  StyledBlog  from './BlogStyled';
 import BlogPost from './BlogPost';
-import { selectIsDarkMode } from './reducers/darkmode/darkmodeSlices';
+import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import { useSelector } from 'react-redux';
 
 interface Post {
