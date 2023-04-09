@@ -72,7 +72,7 @@ export const Styled = {
         z-index: 2;
         font-size: 12px;
         letter-spacing: 5px;
-        color: #FFFFFF;
+        color: #fffff;
         text-shadow: 0 0 4px white;
         text-decoration: none;
         position: relative;
@@ -136,12 +136,16 @@ export const Styled = {
         z-index: 1;
         background-color: #fffff;
         color: #fffff;
+        text-decoration: none;
+
     
     }
     
     &:hover {
         transform: scale(1.1);
         color: #fffff;
+        text-decoration: none;
+
     }
     
     &:active {
