@@ -4,7 +4,7 @@ export const StyledPost = {
   BlogPostContainer: styled.div<{ loaded: boolean }>`
     max-width: 80%;
     margin: 0 auto;
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     display: flex;
     flex-direction: column;
     align-items: center;
