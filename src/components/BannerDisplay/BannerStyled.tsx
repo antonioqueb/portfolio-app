@@ -136,7 +136,6 @@ export const Styled = {
     
     &:hover #container-stars {
         z-index: 1;
-        background-color: #fffff;
         color: #fffff;
         text-decoration: none;
 
@@ -145,10 +144,10 @@ export const Styled = {
     
     &:hover {
         transform: scale(1.1);
-        color: #fffff;
+        color: #212121;
         text-decoration: none;
-
     }
+    
     
     &:active {
         border: double 4px #FE53BB;
