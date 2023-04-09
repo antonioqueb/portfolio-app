@@ -82,37 +82,39 @@ export const StyledBlog = {
   
 
   ReadMoreButton: styled.button<{ isDarkMode?: boolean }>`
-    margin-left: 0;
-    margin-right: auto;
-    display: block;
-    justify-content: start;
-    align-items: start;
-    width: 9.75rem;
-    height: 2.3rem;
-    background-size: 300% 300%;
-    backdrop-filter: blur(1rem);
-    border-radius: 5rem;
-    transition: 0.5s;
-    animation: gradient_301 5s ease infinite;
-    border: double 4px transparent;
-    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
-    text-decoration: none;
-    color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff !important' : '#ffffff !important')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 3rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
 
-
-
-    strong {
+  
+  
+  
+  strong {
       z-index: 2;
       font-size: 12px;
       letter-spacing: 5px;
-      color: white;
+      color: #fffff;
+      text-shadow: 0 0 4px white;
       text-decoration: none;
       position: relative;
   }
-
+  
+  
   strong::after {
       content: '';
       position: absolute;
@@ -120,22 +122,20 @@ export const StyledBlog = {
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: white;
+      background-color: #fff;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease-out;
-      color: white;
-
+      color: #fffff;
   }
-
+  
+  
   strong:hover::after {
       transform: scaleX(1);
   }
-
+  
   #container-stars {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: fixed;
       z-index: -1;
       width: 100%;
       height: 100%;
@@ -143,15 +143,15 @@ export const StyledBlog = {
       transition: 0.5s;
       backdrop-filter: blur(1rem);
       border-radius: 5rem;
-      color: white;
-
+      color: #ffffff;
+  
   }
-
+  
   #glow {
       position: absolute;
       display: flex;
       width: 12rem;
-
+  
       .circle {
       width: 100%;
       height: 30px;
@@ -159,54 +159,49 @@ export const StyledBlog = {
       animation: pulse_3011 4s infinite;
       z-index: -1;
       }
-
+  
       .circle:nth-of-type(1) {
       background: rgba(254, 83, 186, 0.636);
       }
-
+  
       .circle:nth-of-type(2) {
       background: rgba(142, 81, 234, 0.704);
       }
   }
-
+  
   &:hover #container-stars {
       z-index: 1;
-      background-color: #ffffff;
-      color: #ffffff;
+      color: #fffff;
       text-decoration: none;
 
-
+  
   }
-
+  
   &:hover {
-      transform: scale(1.2);
-      color: #ffffff;
+      transform: scale(1.1);
+      color: #fffff;
       text-decoration: none;
-
   }
-
+  
+  
   &:active {
       border: double 4px #FE53BB;
       background-origin: border-box;
       background-clip: content-box, border-box;
       animation: none;
-      color: white;
-      text-decoration: none;
-
-
+      color: #fffff;
+  
       .circle {
       background: #FE53BB;
       }
   }
-
+  
   #stars {
       position: relative;
       background: transparent;
       width: 200rem;
       height: 200rem;
-      text-decoration: none;
-
-
+  
       &::after {
       content: "";
       position: absolute;
@@ -217,9 +212,9 @@ export const StyledBlog = {
       animation: animStarRotate 90s linear infinite;
       background-image: radial-gradient(#ffffff 1px, transparent 1%);
       background-size: 50px 50px;
-      color: white;
+      color: #fffff;
       }
-
+  
       &::before {
       content: "";
       position:
@@ -232,10 +227,10 @@ export const StyledBlog = {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;
-  color: #ffffff;
+  color: #fffff;
   }
   }
-
+  
   @keyframes animStar {
   from {
       transform: translateY(0);
@@ -243,19 +238,19 @@ export const StyledBlog = {
   to {
       transform: translateY(-135rem);
   }
-
+  
   }
-
+  
   @keyframes animStarRotate {
   from {
       transform: rotate(360deg);
   }
-
+  
   to {
       transform: rotate(0);
   }
   }
-
+  
   @keyframes gradient_301 {
   0% {
       background-position: 0% 50%;
@@ -263,12 +258,12 @@ export const StyledBlog = {
   50% {
       background-position: 100% 50%;
   }
-
+  
   100% {
       background-position: 0% 50%;
   }
   }
-
+  
   @keyframes pulse_3011 {
   0% {
       transform: scale(0.75);
@@ -278,13 +273,14 @@ export const StyledBlog = {
       transform: scale(1);
       box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
   }
-
+  
   100% {
       transform: scale(0.75);
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
-}
-  `,
+  }
+      `,
+
 
 };
 
