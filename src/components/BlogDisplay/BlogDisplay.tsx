@@ -49,8 +49,8 @@ const BlogDisplay: React.FC = () => {
       <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
         <img src={post.image} alt={post.title} />
         <>
-        <h3>{post.title}</h3>
-        <p>{post.content.slice(0, 210) + '...'}</p>
+        <h3 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '...' }} />
         
         <Link to={`/blog/${post.id}`}>
           <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
