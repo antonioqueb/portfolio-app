@@ -24,10 +24,17 @@ export const StyledPost = {
 
     p {
       font-size: 1.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       color: dark;
       text-align: left ;
     }
+
+    h4 + p {
+      margin-bottom: 1.5rem;
+
+    }
+
+
 
     .bold-text {
       font-weight: bold;
