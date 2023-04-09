@@ -64,7 +64,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
       <div className="post-image-container">
         <img src={post.image} alt={post.title} />
         <div className="post-image-overlay">
-          <h1>{post.title}</h1>
+        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
           <p className="author-info">Author: {post.author.name}</p>
         </div>
       </div>
