@@ -80,7 +80,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
       </div>
       <div className="blog-content">
         {formattedContent}
-        <p><b>Date:</b> {formatDate(post.date_posted)}</p>
+        <p>{formatDate(post.date_posted)}</p>
       </div>
     </StyledPost.BlogPostContainer>
   );
