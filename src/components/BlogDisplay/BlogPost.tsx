@@ -70,9 +70,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
         </div>
       </div>
       <div className="blog-content">
-      {ReactHtmlParser(post.content)}
-      <p><b>Fecha:</b> {post.date_posted}</p>
-    </div>
+        {formattedContent}
+        <p><b>Fecha:</b> {post.date_posted}</p>
+      </div>
     </StyledPost.BlogPostContainer>
   );
 };
