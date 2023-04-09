@@ -92,6 +92,15 @@ export const StyledPost = {
       color: dark;
       text-align: left;
     }
+    .date {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #4a4a4a;
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    
   `,
 };
 
