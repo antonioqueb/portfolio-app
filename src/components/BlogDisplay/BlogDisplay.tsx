@@ -70,7 +70,7 @@ const renderPostList = () => {
           isDarkMode={isDarkMode}
           dangerouslySetInnerHTML={{ __html: convertTitle(post.title) }}
         />
-        <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '.....' }} />
+        <p style={{ fontSize: '11px' }} dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '.....' }} />
         
         <Link to={`/blog/${post.id}`}>
           <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
