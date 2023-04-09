@@ -47,7 +47,7 @@ export const StyledPost = {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.5);
+      filter: brightness(0.35);
       transition: filter 500ms;
     }
 
