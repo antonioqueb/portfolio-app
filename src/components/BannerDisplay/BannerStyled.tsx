@@ -37,13 +37,13 @@ export const Styled = {
     BannerTitle : styled.h1`
         font-size: 3rem;
         margin-bottom: 2rem;
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         `,
 
     BannerSubtitle : styled.h2`
         font-size: 1.8rem;
         margin-bottom: 3rem;
-        font-family: 'Roboto';
+        font-family: 'Roboto', sans-serif;
         `,
 
     Button : styled.a<ButtonProps>`
