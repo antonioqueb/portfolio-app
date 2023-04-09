@@ -39,7 +39,8 @@ export const Styled = {
         margin-bottom: 2rem;
         font-family: 'Roboto', sans-serif;
         display: flex;
-        align-items: flex-start;
+        justify-content: flex-sratrt;
+        flex-direction: column;
         
         `,
 
@@ -48,7 +49,8 @@ export const Styled = {
         margin-bottom: 3rem;
         font-family: 'Roboto', sans-serif;
         display: flex;
-        align-items: flex-start;
+        justify-content: flex-sratrt;
+        flex-direction: column;
         `,
 
     Button : styled.a<ButtonProps>`
