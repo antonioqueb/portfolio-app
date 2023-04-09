@@ -4,6 +4,8 @@ import  StyledBlog  from './BlogStyled';
 import BlogPost from './BlogPost';
 import { selectIsDarkMode } from '../../reducers/darkmode/darkmodeSlices';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 interface Post {
   id: number;
@@ -42,11 +44,6 @@ const BlogDisplay: React.FC = () => {
     }
   };
 
-
-  const handlePostClick = (postId: number) => {
-    setSelectedPostId(postId);
-  };
-
   const renderPostList = () => {
     return filteredPosts.map((post, index) => (
       <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
@@ -55,11 +52,14 @@ const BlogDisplay: React.FC = () => {
         <h3>{post.title}</h3>
         <p>{post.content.slice(0, 210) + '...'}</p>
         
-        <StyledBlog.ReadMoreButton onClick={() => handlePostClick(post.id)}>Read more...</StyledBlog.ReadMoreButton>
-       </>
+        <Link to={`/blog/${post.id}`}>
+          <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
+        </Link>
+        </>
       </StyledBlog.Post>
     ));
   };
+  
   
   return (
     <StyledBlog.BlogContainer isDarkMode={isDarkMode}>
