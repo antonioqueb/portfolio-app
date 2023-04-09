@@ -7,7 +7,7 @@ export const StyledBlog = {
   BlogContainer: styled.div<{ isDarkMode?: boolean }>`
     max-width: 1200px;
     margin: 0 auto;
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
     color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     padding: 2rem;
@@ -19,7 +19,7 @@ export const StyledBlog = {
     border-radius: 10px;
     border: none;
     background-color: #f2f2f2;
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
