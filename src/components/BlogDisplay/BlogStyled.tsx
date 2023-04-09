@@ -41,7 +41,7 @@ export const StyledBlog = {
   margin-top: 2rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
 `,
-  PostTitle: styled.h3<>`
+  PostTitle: styled.h3`
   && {
     font-size: 14px;
   }
