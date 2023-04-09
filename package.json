@@ -10,6 +10,7 @@
     "start": "npx http-server ./dist -p $PORT"
   },
   "dependencies": {
+    "react-html-parser": "^0.14.3",
     "@formspree/react": "^2.4.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/styled-components": "^5.1.26",

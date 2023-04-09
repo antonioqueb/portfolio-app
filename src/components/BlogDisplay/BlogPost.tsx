@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
 import StyledPost from './BlogStyledPost';
+import ReactHtmlParser from 'react-html-parser';
+
 
 interface Author {
   id: number;
@@ -68,9 +70,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
         </div>
       </div>
       <div className="blog-content">
-        {formattedContent}
-        <p><b>Fecha:</b> {post.date_posted}</p>
-      </div>
+      {ReactHtmlParser(post.content)}
+      <p><b>Fecha:</b> {post.date_posted}</p>
+    </div>
     </StyledPost.BlogPostContainer>
   );
 };
