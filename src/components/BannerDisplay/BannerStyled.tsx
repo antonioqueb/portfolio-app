@@ -53,7 +53,7 @@ export const Styled = {
 
     Button : styled.a<ButtonProps>`
     display: flex;
-    justify-content: start;
+    justify-content: center;
     display: flex;
     align-items: flex-start;
     width: 13rem;
