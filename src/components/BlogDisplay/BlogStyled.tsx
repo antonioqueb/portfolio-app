@@ -127,11 +127,13 @@ export const StyledBlog = {
       transform-origin: left;
       transition: transform 0.2s ease-out;
       color: #fffff;
+      text-decoration: none
   }
   
   
   strong:hover::after {
       transform: scaleX(1);
+      text-decoration: none
   }
   
   #container-stars {
