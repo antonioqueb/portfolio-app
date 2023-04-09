@@ -21,7 +21,7 @@ const BlogDisplay: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
-  const isDarkMode = useSelector(selectIsDarkMode);
+  const isDarkMode = useSelector(selectIsDarkMode) as boolean;
 
 
   useEffect(() => {
