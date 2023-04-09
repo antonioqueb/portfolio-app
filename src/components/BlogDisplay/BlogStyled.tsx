@@ -42,9 +42,7 @@ export const StyledBlog = {
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
 `,
   PostTitle: styled.h3`
-  && {
-    font-size: 14px;
-  }
+  font-size: 14px !important;
   `,
 
   Post: styled.div<{ isDarkMode?: boolean }>`
