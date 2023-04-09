@@ -191,6 +191,8 @@ export const StyledBlog = {
       background-clip: content-box, border-box;
       animation: none;
       color: white;
+      text-decoration: none;
+
 
       .circle {
       background: #FE53BB;
@@ -202,6 +204,8 @@ export const StyledBlog = {
       background: transparent;
       width: 200rem;
       height: 200rem;
+      text-decoration: none;
+
 
       &::after {
       content: "";

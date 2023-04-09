@@ -65,6 +65,8 @@ export const Styled = {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
+    text-decoration: none;
+
     
     
     
