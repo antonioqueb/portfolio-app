@@ -16,7 +16,7 @@ export const StyledPost = {
     h1 {
       font-size: 3rem;
       margin-bottom: 2rem;
-      color: #ff8c00;
+      color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 3px;
       text-align: center;
@@ -47,7 +47,7 @@ export const StyledPost = {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.7);
+      filter: brightness(0.5);
       transition: filter 500ms;
     }
 
