@@ -56,7 +56,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
   }
 
   const formattedContent = post.content.split('\r\n\r\n').map((paragraph, index) => (
-    <p key={index}>{paragraph}</p>
+    <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
   ));
 
   return (
