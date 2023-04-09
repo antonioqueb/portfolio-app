@@ -106,7 +106,7 @@ DemoButton : styled.button<{ isDarkMode: boolean }>`
 
   strong {
     z-index: 2;
-    font-family: 'Avalon Personal Use', cursive;
+    font-family: 'Poppins';
     font-size: 12px;
     letter-spacing: 5px;
     color: #FFFFFF;
@@ -299,7 +299,7 @@ a {
 
 strong {
   z-index: 2;
-  font-family: 'Avalon Personal Use', cursive;
+  font-family: 'Poppins';
   font-size: 12px;
   letter-spacing: 5px;
   color: #FFFFFF;

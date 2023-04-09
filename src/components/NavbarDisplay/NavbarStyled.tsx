@@ -11,7 +11,7 @@ export const Styled = {
   Header : styled.header<HeaderProps>`
     @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
     box-sizing: border-box;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins';
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,13 +45,13 @@ export const Styled = {
     }
   
     li {
-      font-family: 'Nunito Sans', sans-serif;
+      font-family: 'Poppins';
       margin-right: 4.9rem;
       text-decoration: none;
     }
 :
     a {
-      font-family: 'Nunito Sans', sans-serif;
+      font-family: 'Poppins';
       text-decoration: none;
       transition: font-size 0.19s ease-out;
       text-decoration: none;
@@ -79,7 +79,7 @@ export const Styled = {
   `,
   
   SwitchLabel : styled.label`
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins';
     margin-right: 0.5rem;
   `,
 
