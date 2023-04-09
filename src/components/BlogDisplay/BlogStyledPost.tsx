@@ -15,7 +15,7 @@ export const StyledPost = {
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
       color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -81,7 +81,7 @@ export const StyledPost = {
 
     p {
       font-size: 1.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       color: dark;
       text-align: left;
     }
