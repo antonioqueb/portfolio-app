@@ -5,8 +5,8 @@ import FooterDisplay from '../../components/FooterDisplay/FooterDisplay';
 import BlogPost from '../../components/BlogDisplay/BlogPost';
 
 const BlogDetail: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
-  const postIdAsNumber = parseInt(postId, 10);
+  const { postId } = useParams<{ postId?: string }>();
+  const postIdAsNumber = parseInt(postId || '0', 10);
 
   return (
     <>
