@@ -45,26 +45,40 @@ const BlogDisplay: React.FC = () => {
   };
 
 // En el archivo BlogDisplay.tsx
+const convertTitle = (title) => {
+  const titleElement = new DOMParser().parseFromString(title, 'text/html');
+  const h1 = titleElement.querySelector('h1');
+
+  if (h1) {
+    const h4 = document.createElement('h4');
+    h4.innerHTML = h1.innerHTML;
+    h1.parentNode.replaceChild(h4, h1);
+    return titleElement.body.innerHTML;
+  }
+
+  return title;
+};
 
 const renderPostList = () => {
   return filteredPosts.map((post, index) => (
     <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
       <img src={post.image} alt={post.title} />
       <>
-      <StyledBlog.PostTitle
-        style={{ fontSize: '14px' }}
-        isDarkMode={isDarkMode}
-        dangerouslySetInnerHTML={{ __html: post.title }}
-      />
-      <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '.....' }} />
-      
-      <Link to={`/blog/${post.id}`}>
-        <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
-      </Link>
+        <StyledBlog.PostTitle
+          style={{ fontSize: '14px' }}
+          isDarkMode={isDarkMode}
+          dangerouslySetInnerHTML={{ __html: convertTitle(post.title) }}
+        />
+        <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '.....' }} />
+        
+        <Link to={`/blog/${post.id}`}>
+          <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
+        </Link>
       </>
     </StyledBlog.Post>
   ));
 };
+
 
   
   
