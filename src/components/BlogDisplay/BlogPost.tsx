@@ -64,7 +64,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
         <img src={post.image} alt={post.title} />
         <div className="post-image-overlay">
           <h1>{post.title}</h1>
-          <p className="author-info">Escrito por: {post.author.name}</p>
+          <p className="author-info">Author: {post.author.name}</p>
         </div>
       </div>
       {formattedContent}
