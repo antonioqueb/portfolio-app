@@ -49,7 +49,7 @@ const BlogDisplay: React.FC = () => {
       <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
         <img src={post.image} alt={post.title} />
         <>
-        <h3 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <h3  dangerouslySetInnerHTML={{ __html: post.title }} />
         <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '...' }} />
         
         <Link to={`/blog/${post.id}`}>
