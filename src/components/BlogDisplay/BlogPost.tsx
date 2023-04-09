@@ -67,8 +67,10 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
           <p className="author-info">Author: {post.author.name}</p>
         </div>
       </div>
-      {formattedContent}
-      <p><b>Fecha:</b> {post.date_posted}</p>
+      <div className="blog-content">
+        {formattedContent}
+        <p><b>Fecha:</b> {post.date_posted}</p>
+      </div>
     </StyledPost.BlogPostContainer>
   );
 };
