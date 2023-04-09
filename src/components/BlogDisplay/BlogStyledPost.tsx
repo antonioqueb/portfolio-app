@@ -30,7 +30,7 @@ export const StyledPost = {
     }
 
     h4 + p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.2rem;
 
     }
 
