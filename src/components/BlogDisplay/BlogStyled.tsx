@@ -78,8 +78,8 @@ export const StyledBlog = {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     width: 13rem;
     height: 3rem;
     background-size: 300% 300%;
