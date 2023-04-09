@@ -47,8 +47,8 @@ export const StyledBlog = {
    box-shadow: ${({ isDarkMode }) => (isDarkMode ? '2px 2px 5px rgba(255, 255, 255, 0.3)' : '2px 2px 5px rgba(0, 0, 0, 0.3)')};
 
     h3 { 
-      margin-bottom: 1rem;
-      font-size: 18px; // Ajusta el tamaño de la fuente aquí
+      margin-bottom: 0.5rem;
+      font-size: 13px; // Ajusta el tamaño de la fuente aquí
       font-weight: bold;
       color:  ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
   }
