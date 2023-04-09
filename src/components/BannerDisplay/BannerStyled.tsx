@@ -38,18 +38,24 @@ export const Styled = {
         font-size: 3rem;
         margin-bottom: 2rem;
         font-family: 'Roboto', sans-serif;
+        display: flex;
+        align-items: flex-start;
+        
         `,
 
     BannerSubtitle : styled.h2`
         font-size: 1.8rem;
         margin-bottom: 3rem;
         font-family: 'Roboto', sans-serif;
+        display: flex;
+        align-items: flex-start;
         `,
 
     Button : styled.a<ButtonProps>`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    display: flex;
+    align-items: flex-start;
     width: 13rem;
     height: 3rem;
     background-size: 300% 300%;
