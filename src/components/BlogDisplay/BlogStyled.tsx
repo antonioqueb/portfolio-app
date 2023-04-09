@@ -81,7 +81,7 @@ export const StyledBlog = {
     justify-content: start;
     align-items: start;
     width: 9.75rem;
-    height: 3rem;
+    height: 2rem;
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
@@ -117,7 +117,7 @@ export const StyledBlog = {
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease-out;
-      color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#ffffff')};
+      color: #ffffff;
 
   }
 
