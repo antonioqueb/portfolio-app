@@ -45,11 +45,11 @@ const BlogDisplay: React.FC = () => {
   };
 
 // En el archivo BlogDisplay.tsx
-const convertTitle = (title) => {
+const convertTitle = (title: string): string => {
   const titleElement = new DOMParser().parseFromString(title, 'text/html');
   const h1 = titleElement.querySelector('h1');
 
-  if (h1) {
+  if (h1 && h1.parentNode) {
     const h4 = document.createElement('h4');
     h4.innerHTML = h1.innerHTML;
     h1.parentNode.replaceChild(h4, h1);
@@ -58,6 +58,7 @@ const convertTitle = (title) => {
 
   return title;
 };
+
 
 const renderPostList = () => {
   return filteredPosts.map((post, index) => (
