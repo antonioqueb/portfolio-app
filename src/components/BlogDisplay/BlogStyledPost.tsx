@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 export const StyledPost = {
   BlogPostContainer: styled.div<{ loaded: boolean }>`
     max-width: 80%;
@@ -24,8 +26,7 @@ export const StyledPost = {
       font-size: 1.2rem;
       margin-bottom: 1rem;
       color: dark;
-      /* Agregar la siguiente línea */
-      text-align: left;
+      text-align: start;
     }
 
     .bold-text {
@@ -72,6 +73,5 @@ export const StyledPost = {
     }
   `,
 };
-
 
 export default StyledPost;
