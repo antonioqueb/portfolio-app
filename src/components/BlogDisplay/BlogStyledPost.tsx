@@ -26,7 +26,7 @@ export const StyledPost = {
       font-size: 1.2rem;
       margin-bottom: 1rem;
       color: dark;
-      text-align: start;
+      text-align: left ;
     }
 
     .bold-text {
