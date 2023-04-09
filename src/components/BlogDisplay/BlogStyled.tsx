@@ -7,8 +7,8 @@ export const StyledBlog = {
     max-width: 1200px;
     margin: 0 auto;
     font-family: 'Poppins';
-    background-color: ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
-    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+    background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+    color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     padding: 2rem;
     border-radius: 15px;
   `,
@@ -38,10 +38,10 @@ export const StyledBlog = {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-top: 2rem;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
+  background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
 `,
   Post: styled.div<{ isDarkMode?: boolean }>`
-   background-color:  ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
+   background-color:  ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
    padding: 1rem;
    border-radius: 10px;
    box-shadow: ${({ isDarkMode }) => (isDarkMode ? '2px 2px 5px rgba(255, 255, 255, 0.3)' : '2px 2px 5px rgba(0, 0, 0, 0.3)')};
@@ -50,17 +50,17 @@ export const StyledBlog = {
       margin-bottom: 1rem;
       font-size: 24px;
       font-weight: bold;
-      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+      color:  ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     }
 
     p {
       margin-bottom: 0.5rem;
       font-size: 16px;
-      color:  ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+      color:  ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     }
 
     button {
-      color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+      color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     }
 
     img {
@@ -102,7 +102,7 @@ export const StyledBlog = {
       z-index: 2;
       font-size: 12px;
       letter-spacing: 5px;
-      color: #ffffff;
+      color: white;
       text-decoration: none;
       position: relative;
   }
@@ -114,11 +114,11 @@ export const StyledBlog = {
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #ffffff;
+      background-color: white;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease-out;
-      color: #ffffff;
+      color: white;
 
   }
 
@@ -137,7 +137,7 @@ export const StyledBlog = {
       transition: 0.5s;
       backdrop-filter: blur(1rem);
       border-radius: 5rem;
-      color: #ffffff;
+      color: white;
 
   }
 
@@ -180,7 +180,7 @@ export const StyledBlog = {
       background-origin: border-box;
       background-clip: content-box, border-box;
       animation: none;
-      color: #ffffff;
+      color: white;
 
       .circle {
       background: #FE53BB;
@@ -203,7 +203,7 @@ export const StyledBlog = {
       animation: animStarRotate 90s linear infinite;
       background-image: radial-gradient(#ffffff 1px, transparent 1%);
       background-size: 50px 50px;
-      color: #ffffff;
+      color: white;
       }
 
       &::before {
