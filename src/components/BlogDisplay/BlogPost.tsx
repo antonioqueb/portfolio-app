@@ -9,6 +9,7 @@ interface Post {
   category: string;
   image: string;
   author: string;
+  name: string;
   date_posted: string;
 }
 
