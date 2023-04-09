@@ -14,11 +14,8 @@ interface Post {
   date_posted: string;
 }
 
-interface BlogDisplayProps {
-  isDarkMode?: boolean;
-}
 
-const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
+const BlogDisplay: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
