@@ -144,7 +144,7 @@ export const Styled = {
     
     &:hover {
         transform: scale(1.1);
-        color: #212121;
+        color: #fffff;
         text-decoration: none;
     }
     
