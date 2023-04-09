@@ -71,6 +71,20 @@ export const StyledPost = {
       font-weight: bold;
       margin-top: 0.5rem;
     }
+
+    .blog-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: dark;
+      text-align: left;
+    }
   `,
 };
 
