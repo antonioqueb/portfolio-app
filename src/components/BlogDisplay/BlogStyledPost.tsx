@@ -29,11 +29,11 @@ export const StyledPost = {
       text-align: left ;
     }
 
-    h4 ~ p {
+    h4 {
+      margin-top: 2.2rem;
       margin-bottom: 2.2rem;
-
     }
-
+    
 
 
     .bold-text {
