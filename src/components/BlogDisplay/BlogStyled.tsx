@@ -7,7 +7,7 @@ export const StyledBlog = {
   BlogContainer: styled.div<{ isDarkMode?: boolean }>`
     max-width: 1200px;
     margin: 0 auto;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
     color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     padding: 2rem;
