@@ -62,7 +62,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
   
   return (
     <StyledBlog.BlogContainer isDarkMode={isDarkMode}>
-      <StyledBlog.PostGrid>
+      <StyledBlog.PostGrid isDarkMode={isDarkMode} >
         {renderPostList()}
       </StyledBlog.PostGrid>
       {selectedPostId && <BlogPost postId={selectedPostId} setPostId={setSelectedPostId} />}

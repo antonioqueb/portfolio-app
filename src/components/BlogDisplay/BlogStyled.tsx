@@ -33,12 +33,13 @@ export const StyledBlog = {
       box-shadow: 0 0 5px #c3c3c3;
     }
   `,
-  PostGrid: styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-  `,
+  PostGrid: styled.div<{ isDarkMode?: boolean }>`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
+`,
   Post: styled.div<{ isDarkMode?: boolean }>`
    background-color:  ${({ isDarkMode }) => (isDarkMode ? '#333' : '#fff')};
    padding: 1rem;
