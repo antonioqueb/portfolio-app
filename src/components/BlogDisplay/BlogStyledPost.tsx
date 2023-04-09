@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledPost = {
   BlogPostContainer: styled.div<{ loaded: boolean }>`
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -15,7 +15,7 @@ export const StyledPost = {
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -81,15 +81,10 @@ export const StyledPost = {
 
     p {
       font-size: 1.2rem;
+      margin-bottom: 1rem;
       color: dark;
       text-align: left;
     }
-
-    h4 ~ p {
-      margin-top: 2rem;
-    }
-    
-    
   `,
 };
 
