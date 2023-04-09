@@ -65,7 +65,6 @@ export const Styled = {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
-    text-decoration: none;
 
     
     
@@ -80,6 +79,7 @@ export const Styled = {
         position: relative;
     }
     
+    
     strong::after {
         content: '';
         position: absolute;
@@ -92,8 +92,8 @@ export const Styled = {
         transform-origin: left;
         transition: transform 0.2s ease-out;
         color: #fffff;
-    
     }
+    
     
     strong:hover::after {
         transform: scaleX(1);
@@ -108,7 +108,7 @@ export const Styled = {
         transition: 0.5s;
         backdrop-filter: blur(1rem);
         border-radius: 5rem;
-        color: #fffff;
+        color: #ffffff;
     
     }
     
