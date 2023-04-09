@@ -75,12 +75,12 @@ export const StyledBlog = {
   
 
   ReadMoreButton: styled.button<{ isDarkMode?: boolean }>`
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     display: block;
     justify-content: start;
     align-items: start;
-    width: 13rem;
+    width: 9.75rem;
     height: 3rem;
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
@@ -93,7 +93,7 @@ export const StyledBlog = {
     background-clip: content-box, border-box;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
     text-decoration: none;
-    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#333')};
+    color: #fffff;
 
 
 
@@ -101,8 +101,7 @@ export const StyledBlog = {
       z-index: 2;
       font-size: 12px;
       letter-spacing: 5px;
-      color: #FFFFFF;
-      text-shadow: 0 0 4px white;
+      color: #FFFFFFFFFF;
       text-decoration: none;
       position: relative;
   }
@@ -118,7 +117,7 @@ export const StyledBlog = {
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease-out;
-      color: #fffff;
+      color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#ffffff')};
 
   }
 
