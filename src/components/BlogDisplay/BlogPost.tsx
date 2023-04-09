@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
 import StyledPost from './BlogStyledPost';
-import ReactHtmlParser from 'react-html-parser';
 
 
 interface Author {
