@@ -2,6 +2,13 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
 import StyledPost from './BlogStyledPost';
 
+interface Author {
+  id: number;
+  name: string;
+  bio: string;
+  profile_pic: string;
+}
+
 interface Post {
   id: number;
   title: string;
@@ -9,6 +16,7 @@ interface Post {
   category: string;
   image: string;
   date_posted: string;
+  author: Author;
 }
 
 interface BlogPostProps {
@@ -46,11 +54,20 @@ const BlogPost: React.FC<BlogPostProps> = ({ postId, setPostId }) => {
     return <div>Loading...</div>;
   }
 
+  const formattedContent = post.content.split('\r\n\r\n').map((paragraph, index) => (
+    <p key={index}>{paragraph}</p>
+  ));
+
   return (
     <StyledPost.BlogPostContainer loaded={loaded}>
-      <h1>{post.title}</h1>
-      <img src={post.image} alt={post.title} />
-      <p>{post.content}</p>
+      <div className="post-image-container">
+        <img src={post.image} alt={post.title} />
+        <div className="post-image-overlay">
+          <h1>{post.title}</h1>
+          <p className="author-info">Escrito por: {post.author.name}</p>
+        </div>
+      </div>
+      {formattedContent}
       <p><b>Fecha:</b> {post.date_posted}</p>
     </StyledPost.BlogPostContainer>
   );

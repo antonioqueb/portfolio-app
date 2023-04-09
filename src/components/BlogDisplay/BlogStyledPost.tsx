@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-
 export const StyledPost = {
-  
-
-  BlogPostContainer: styled.div<{ isDarkMode?: boolean; loaded: boolean }>`
-    max-width: 1200px;
+  BlogPostContainer: styled.div<{ loaded: boolean }>`
+    max-width: 80%;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -25,26 +22,52 @@ export const StyledPost = {
       text-align: center;
     }
 
-    // ... (El resto del código)
-
     p {
       font-size: 1.2rem;
       margin-bottom: 1rem;
-      color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'dark')};
+      color: dark;
       text-align: center;
     }
 
-    img {
-        width: 100%;      /* Establece el ancho de la imagen al 100% del contenedor */
-        height: 250px;    /* Establece una altura fija para la imagen */
-        object-fit: cover;/* Asegura que la imagen cubra el área sin deformarse ni desbordarse */
-        border-radius: 19px;
-        margin: 2rem 0;
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-      }
-      
+    .post-image-container {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 19px;
+      margin: 2rem 0;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
 
-  `
+    .post-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: filter 500ms;
+    }
+
+    .post-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      color: white;
+      text-align: center;
+    }
+
+    .author-info {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+  `,
 };
 
 export default StyledPost;
