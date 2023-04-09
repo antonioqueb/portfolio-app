@@ -29,12 +29,8 @@ export const StyledPost = {
       text-align: start;
     }
 
-    h2 {
-      font-size: 1.5rem;
+    .bold-text {
       font-weight: bold;
-      margin-bottom: 1rem;
-      color: dark;
-      text-align: start;
     }
 
     .post-image-container {
