@@ -54,7 +54,7 @@ const BlogDisplay: React.FC<BlogDisplayProps> = ({ isDarkMode }) => {
         <h3>{post.title}</h3>
         <p>{post.content.slice(0, 210) + '...'}</p>
         
-        <ReadMoreButton onClick={() => handlePostClick(post.id)}>Leer más</ReadMoreButton>
+        <StyledBlog.ReadMoreButton onClick={() => handlePostClick(post.id)}>Leer más</StyledBlog.ReadMoreButton>
        </>
       </StyledBlog.Post>
     ));
