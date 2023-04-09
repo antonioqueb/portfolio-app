@@ -81,7 +81,7 @@ export const StyledBlog = {
     justify-content: start;
     align-items: start;
     width: 9.75rem;
-    height: 2rem;
+    height: 2.3rem;
     background-size: 300% 300%;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
@@ -93,7 +93,7 @@ export const StyledBlog = {
     background-clip: content-box, border-box;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
     text-decoration: none;
-    color: #fffff;
+    color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff !important' : '#ffffff !important')};
 
 
 
@@ -101,7 +101,7 @@ export const StyledBlog = {
       z-index: 2;
       font-size: 12px;
       letter-spacing: 5px;
-      color: #FFFFFFFFFF;
+      color: #ffffff;
       text-decoration: none;
       position: relative;
   }
@@ -113,7 +113,7 @@ export const StyledBlog = {
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #fff;
+      background-color: #ffffff;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease-out;
@@ -136,7 +136,7 @@ export const StyledBlog = {
       transition: 0.5s;
       backdrop-filter: blur(1rem);
       border-radius: 5rem;
-      color: #fffff;
+      color: #ffffff;
 
   }
 
@@ -164,14 +164,14 @@ export const StyledBlog = {
 
   &:hover #container-stars {
       z-index: 1;
-      background-color: #fffff;
-      color: #fffff;
+      background-color: #ffffff;
+      color: #ffffff;
 
   }
 
   &:hover {
       transform: scale(1.2);
-      color: #fffff;
+      color: #ffffff;
   }
 
   &:active {
@@ -179,7 +179,7 @@ export const StyledBlog = {
       background-origin: border-box;
       background-clip: content-box, border-box;
       animation: none;
-      color: #fffff;
+      color: #ffffff;
 
       .circle {
       background: #FE53BB;
@@ -202,7 +202,7 @@ export const StyledBlog = {
       animation: animStarRotate 90s linear infinite;
       background-image: radial-gradient(#ffffff 1px, transparent 1%);
       background-size: 50px 50px;
-      color: #fffff;
+      color: #ffffff;
       }
 
       &::before {
@@ -217,7 +217,7 @@ export const StyledBlog = {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;
-  color: #fffff;
+  color: #ffffff;
   }
   }
 
