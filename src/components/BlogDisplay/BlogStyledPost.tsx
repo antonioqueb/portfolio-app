@@ -29,7 +29,7 @@ export const StyledPost = {
       text-align: left ;
     }
 
-    h4 + p {
+    h4 ~ p {
       margin-bottom: 2.2rem;
 
     }
