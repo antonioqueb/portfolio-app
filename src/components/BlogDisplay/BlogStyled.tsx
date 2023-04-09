@@ -40,6 +40,10 @@ export const StyledBlog = {
   margin-top: 2rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
 `,
+  PostTitle: styled.h3<{ isDarkMode?: boolean }>`
+  font-size: 14px !important;
+  color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+  `,
   Post: styled.div<{ isDarkMode?: boolean }>`
    background-color:  ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
    padding: 1rem;

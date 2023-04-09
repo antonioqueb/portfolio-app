@@ -44,24 +44,27 @@ const BlogDisplay: React.FC = () => {
     }
   };
 
-  const renderPostList = () => {
-    return filteredPosts.map((post, index) => (
-      <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
-        <img src={post.image} alt={post.title} />
-        <>
-        <h3
-          style={{ cssText: 'font-size: 14px !important;' }} // Ajusta el tamaño de la fuente aquí
-          dangerouslySetInnerHTML={{ __html: post.title }}
-        />
-        <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '...' }} />
-        
-        <Link to={`/blog/${post.id}`}>
-          <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
-        </Link>
-        </>
-      </StyledBlog.Post>
-    ));
-  };
+// En el archivo BlogDisplay.tsx
+
+const renderPostList = () => {
+  return filteredPosts.map((post, index) => (
+    <StyledBlog.Post key={index} isDarkMode={isDarkMode}>
+      <img src={post.image} alt={post.title} />
+      <>
+      <StyledBlog.PostTitle
+        isDarkMode={isDarkMode}
+        dangerouslySetInnerHTML={{ __html: post.title }}
+      />
+      <p dangerouslySetInnerHTML={{ __html: post.content.slice(0, 210) + '...' }} />
+      
+      <Link to={`/blog/${post.id}`}>
+        <StyledBlog.ReadMoreButton>Read more...</StyledBlog.ReadMoreButton>
+      </Link>
+      </>
+    </StyledBlog.Post>
+  ));
+};
+
   
   
   
