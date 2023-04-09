@@ -34,6 +34,11 @@ export const StyledPost = {
       margin-bottom: 1.9rem;
     }
     
+    h2 {
+      margin-top: 2.2rem;
+      margin-bottom: 1.9rem;
+    }
+    
 
 
     .bold-text {

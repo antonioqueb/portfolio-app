@@ -173,12 +173,16 @@ export const StyledBlog = {
       z-index: 1;
       background-color: #ffffff;
       color: #ffffff;
+      text-decoration: none;
+
 
   }
 
   &:hover {
       transform: scale(1.2);
       color: #ffffff;
+      text-decoration: none;
+
   }
 
   &:active {
