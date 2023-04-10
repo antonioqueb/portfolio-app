@@ -53,7 +53,7 @@ const BannerDisplay: React.FC = () => {
         <Styled.BannerSubtitle>{profile?.description}</Styled.BannerSubtitle>
         <Styled.ButtonContainer>
           <Styled.Button 
-            href="https://www.queb.online/" target="_blank" rel="noopener noreferrer"
+            href="https://queb.online/cv" target="_blank" rel="noopener noreferrer"
             style={{ fontSize: '1.5rem', fontWeight: 600 }}
             isDarkMode={isDarkMode}
           >Download CV</Styled.Button>
