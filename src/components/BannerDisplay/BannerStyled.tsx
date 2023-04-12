@@ -130,22 +130,25 @@ export const Styled = {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
-    margin-top: 1rem;
+    
 
     @media (max-width: 768px) {
         width: 10rem;
         height: 2.5rem;
+        margin-top: 1rem;
         
     }
 
     @media (max-width: 480px) {
         width: 8rem;
         height: 2rem;
+        margin-top: 1rem;
     }
 
     @media (max-width: 320px) {
         width: 6rem;
         height: 1.5rem;
+        margin-top: 1rem;
     }
     
     
