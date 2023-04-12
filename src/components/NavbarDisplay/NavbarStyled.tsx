@@ -71,16 +71,31 @@ export const Styled = {
       transform: scale(1.1);
       transition: transform 0.2s ease-in-out;
     }
-  `,
-  
-  SwitchWrapper : styled.div`
-    display: flex;
-    align-items: center;
-  `,
-  
-  SwitchLabel : styled.label`
-    font-family: 'Roboto', sans-serif;
-    margin-right: 0.5rem;
+
+    @media (max-width: 1440px) {
+      width: 150px;
+    }
+
+    @media (max-width: 1024px) {
+      width: 90px;
+    }
+
+    @media (max-width: 768px) {
+      width: 80px;
+    }
+
+    @media (max-width: 480px) {
+      width: 80px;
+    }
+
+    @media (max-width: 320px) {
+      width: 60px;
+    }
+
+
+
+
+
   `,
 
 }
