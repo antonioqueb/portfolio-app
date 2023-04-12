@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 interface BannerProps {
@@ -16,7 +16,7 @@ interface ButtonProps {
 export const Styled = {
 
     BannerWrapper : styled.div<BannerProps>`
-        min-height: 100vh;
+        min-height: auto;
         display: flex;
         flex-direction: row;
 
