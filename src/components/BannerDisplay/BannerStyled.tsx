@@ -411,6 +411,8 @@ export const Styled = {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
 
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
         color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
