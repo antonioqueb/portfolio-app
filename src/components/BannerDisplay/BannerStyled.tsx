@@ -40,7 +40,7 @@ export const Styled = {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0 2rem;
+        padding: 0 0.2rem;
 
         align-items: center;
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
@@ -52,21 +52,18 @@ export const Styled = {
      
         @media (max-width: 768px) {
             flex-basis: 100%;
-            padding: 0 1rem;
+            padding: 0 0.5rem;
         }
 
         @media (max-width: 480px) {
             flex-basis: 100%;
-            padding: 0 1rem;
+            padding: 1rem 0.5rem;
         }
 
         @media (max-width: 320px) {
             flex-basis: 100%;
-            padding: 0 1rem;
+            padding: 1rem 0.5rem;
         }
-
-
-
         `,
 
     BannerTitle : styled.h1`
@@ -84,10 +81,14 @@ export const Styled = {
 
         @media (max-width: 480px) {
             font-size: 1.3rem;
+            margin-bottom: 1rem;
+
         }
 
         @media (max-width: 320px) {
             font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+
         }
         
         `,
@@ -394,11 +395,10 @@ export const Styled = {
         align-items: center;
 
         @media (max-width: 768px) {
-            flex-direction: column;
-        }
+            
 
         @media (max-width: 480px) {
-            flex-direction: column;
+            
         }
 
         @media (max-width: 320px) {
