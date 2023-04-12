@@ -44,7 +44,7 @@ const AboutmeDisplay: React.FC<AboutmeProps> = ({ title, imageSrc, isDarkMode })
         <Styled.Image src={aboutmeData.imageSrc || imageSrc} alt="Profile" />
       </Styled.ImageContainer>
       <Styled.DescriptionContainer isDarkMode={isDarkMode}>
-        <Styled.Title style={{ fontSize: '2.5rem', fontWeight: 700 }} isDarkMode={isDarkMode}>
+        <Styled.Title style={{ fontWeight: 700 }} isDarkMode={isDarkMode}>
           {aboutmeData.title || title}
         </Styled.Title>
         <Styled.Description isDarkMode={isDarkMode}>{aboutmeData.description || ''}</Styled.Description>

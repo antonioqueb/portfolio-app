@@ -101,13 +101,17 @@ export const Styled = {
     }
   `,
   Title: styled.h1<AboutmeContainerProps>`
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
     color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     align-self: flex-start;
 
+    @media (max-width: 1024px) {
+      font-size: 2.8rem;
+    }
+
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
 
     @media (max-width: 480px) {
@@ -115,15 +119,18 @@ export const Styled = {
     }
 
     @media (max-width: 320px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   `,
   Description: styled.p<AboutmeContainerProps>`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 2rem;
     color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
     white-space: pre-line;
 
+    @media (max-width: 1024px) {
+      font-size: 1.4rem;
+    }
     
     @media (max-width: 768px) {
       font-size: 1.2rem;
@@ -134,7 +141,7 @@ export const Styled = {
     }
 
     @media (max-width: 320px) {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   `,
 };
