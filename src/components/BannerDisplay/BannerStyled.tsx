@@ -70,38 +70,47 @@ export const Styled = {
         `,
 
     BannerTitle : styled.h1`
-        font-size: 3rem;
+        font-size: 3.2rem;
         margin-bottom: 2rem;
         font-family: 'Roboto', sans-serif;
         display: flex;
         justify-content: flex-sratrt;
         flex-direction: column;
 
+        @media (max-width: 1024px) {
+            font-size: 2.8rem;
+        }
+
 
         @media (max-width: 768px) {
-            font-size: 2rem;
+            font-size: 2.4rem;
             margin-bottom: 1rem;
           }
         
           @media (max-width: 480px) {
-            font-size: 1.3rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
           }
         
           @media (max-width: 320px) {
-            font-size: 0.7rem;
+            font-size: 1.8rem;
             margin-bottom: 0.2rem;
           }
         
         `,
 
     BannerSubtitle : styled.h2`
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 3rem;
         font-family: 'Roboto', sans-serif;
         display: flex;
         justify-content: flex-sratrt;
         flex-direction: column;
+
+        @media (max-width: 1024px) {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+          }
 
 
         @media (max-width: 768px) {
@@ -115,7 +124,7 @@ export const Styled = {
           }
         
           @media (max-width: 320px) {
-            font-size: 0.5rem;
+            font-size: 0.9rem;
             margin-bottom: 0.2rem;
           }
         `,
