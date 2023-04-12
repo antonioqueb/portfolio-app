@@ -27,7 +27,7 @@ export const Styled = {
 
         @media (max-width: 480px) {
             flex-direction: column;
-            display: none;
+            
         }
 
         @media (max-width: 320px) {
@@ -414,6 +414,27 @@ export const Styled = {
 
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
         color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
+
+        @media (max-width: 768px) {
+            flex-basis: 100%;
+            margin-top: 2rem;
+        
+        }
+
+        @media (max-width: 480px) {
+            flex-basis: 100%;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        @media (max-width: 320px) {
+            flex-basis: 100%;
+            margin-top: 2rem;
+            display: none;
+        }
+
+
+
     `,
 
     Image : styled.img`
@@ -429,6 +450,7 @@ export const Styled = {
 
         @media (max-width: 480px) {
             display: none;
+            width: 60%;
         }
 
         @media (max-width: 320px) {
