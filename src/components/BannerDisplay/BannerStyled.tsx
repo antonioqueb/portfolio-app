@@ -16,7 +16,7 @@ interface ButtonProps {
 export const Styled = {
 
     BannerWrapper : styled.div<BannerProps>`
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: row;
 
@@ -40,7 +40,7 @@ export const Styled = {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0 0.2rem;
+        padding: 1rem 0.2rem;
 
         align-items: center;
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
