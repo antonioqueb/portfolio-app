@@ -421,11 +421,11 @@ export const Styled = {
         }
 
         @media (max-width: 480px) {
-            width: 40;
+            display: none;
         }
 
         @media (max-width: 320px) {
-            width: 35%;
+            display: none;
         }
     `,
 
