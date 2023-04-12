@@ -12,7 +12,7 @@ export interface GaleryResponse {
 }
 
 export const fetchBanner = async (): Promise<BannerProps> => {
-  const response = await axios.get<BannerProps>('https://queb.online/api/me/3/?format=json');
+  const response = await axios.get<BannerProps>('https://queb.online/api/me/9/?format=json');
   return response.data;
 };
 
