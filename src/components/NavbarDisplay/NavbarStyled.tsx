@@ -73,7 +73,7 @@ export const Styled = {
     }
 
     @media (max-width: 1440px) {
-      width: 150px;
+      width: 100px;
     }
 
     @media (max-width: 1024px) {
@@ -85,7 +85,7 @@ export const Styled = {
     }
 
     @media (max-width: 480px) {
-      width: 80px;
+      width: 70px;
     }
 
     @media (max-width: 320px) {
