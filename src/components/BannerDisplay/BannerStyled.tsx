@@ -53,17 +53,19 @@ export const Styled = {
         @media (max-width: 768px) {
             flex-basis: 100%;
             padding: 0 0.5rem;
-        }
-
-        @media (max-width: 480px) {
+          }
+        
+          @media (max-width: 480px) {
             flex-basis: 100%;
             padding: 1rem 0.5rem;
-        }
-
-        @media (max-width: 320px) {
+            margin-bottom: 0.5rem;
+          }
+        
+          @media (max-width: 320px) {
             flex-basis: 100%;
             padding: 1rem 0.5rem;
-        }
+            margin-bottom: 0.2rem;
+          }
         `,
 
     BannerTitle : styled.h1`
@@ -77,19 +79,18 @@ export const Styled = {
 
         @media (max-width: 768px) {
             font-size: 2rem;
-        }
-
-        @media (max-width: 480px) {
-            font-size: 1.3rem;
             margin-bottom: 1rem;
-
-        }
-
-        @media (max-width: 320px) {
-            font-size: 0.7rem;
+          }
+        
+          @media (max-width: 480px) {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
-
-        }
+          }
+        
+          @media (max-width: 320px) {
+            font-size: 0.7rem;
+            margin-bottom: 0.2rem;
+          }
         
         `,
 
@@ -104,15 +105,18 @@ export const Styled = {
 
         @media (max-width: 768px) {
             font-size: 1.2rem;
-        }
-
-        @media (max-width: 480px) {
+            margin-bottom: 1rem;
+          }
+        
+          @media (max-width: 480px) {
             font-size: 1rem;
-        }
-
-        @media (max-width: 320px) {
+            margin-bottom: 0.5rem;
+          }
+        
+          @media (max-width: 320px) {
             font-size: 0.5rem;
-        }
+            margin-bottom: 0.2rem;
+          }
         `,
 
     Button : styled.a<ButtonProps>`
