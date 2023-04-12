@@ -20,12 +20,14 @@ export const Styled = {
         display: flex;
         flex-direction: row;
 
+
         @media (max-width: 768px) {
             flex-direction: column;
         }
 
         @media (max-width: 480px) {
             flex-direction: column;
+            display: none;
         }
 
         @media (max-width: 320px) {
@@ -44,6 +46,8 @@ export const Styled = {
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
         color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
         text-align: center;
+
+    
 
      
         @media (max-width: 768px) {
