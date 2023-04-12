@@ -130,7 +130,7 @@ export const Styled = {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
-    padding-top: 1rem;
+    margin-top: 1rem;
 
     @media (max-width: 768px) {
         width: 10rem;
