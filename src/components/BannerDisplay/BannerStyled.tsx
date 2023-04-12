@@ -75,15 +75,15 @@ export const Styled = {
 
 
         @media (max-width: 768px) {
-            font-size: 2.5rem;
-        }
-
-        @media (max-width: 480px) {
             font-size: 2rem;
         }
 
+        @media (max-width: 480px) {
+            font-size: 1.3rem;
+        }
+
         @media (max-width: 320px) {
-            font-size: 1.5rem;
+            font-size: 0.7rem;
         }
         
         `,
@@ -134,16 +134,20 @@ export const Styled = {
     @media (max-width: 768px) {
         width: 10rem;
         height: 2.5rem;
+        padding: 1rem;
+        
     }
 
     @media (max-width: 480px) {
         width: 8rem;
         height: 2rem;
+        padding: 1rem;
     }
 
     @media (max-width: 320px) {
         width: 6rem;
         height: 1.5rem;
+        padding: 1rem;
     }
     
     
