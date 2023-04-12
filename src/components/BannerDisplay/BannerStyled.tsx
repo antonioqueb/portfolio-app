@@ -16,19 +16,20 @@ interface ButtonProps {
 export const Styled = {
 
     BannerWrapper : styled.div<BannerProps>`
-        min-height: auto;
+        min-height: 100vh;
         display: flex;
         flex-direction: row;
 
 
         @media (max-width: 768px) {
             flex-direction: column;
-        }
-
-        @media (max-width: 480px) {
+            min-height: auto;
+          }
+        
+          @media (max-width: 480px) {
             flex-direction: column;
-            
-        }
+            min-height: auto;
+          }
 
         @media (max-width: 320px) {
             flex-direction: column;
