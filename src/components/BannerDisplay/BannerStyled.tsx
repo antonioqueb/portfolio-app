@@ -98,15 +98,15 @@ export const Styled = {
 
 
         @media (max-width: 768px) {
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 480px) {
             font-size: 1.2rem;
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 480px) {
             font-size: 1rem;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 0.5rem;
         }
         `,
 
