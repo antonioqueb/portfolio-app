@@ -49,16 +49,16 @@ const BannerDisplay: React.FC = () => {
   return (
     <Styled.BannerWrapper isDarkMode={isDarkMode} title={profile?.title} description={profile?.description}>
       <Styled.LeftColumn isDarkMode={isDarkMode}>
-        <Styled.BannerTitle style={{ fontSize: '2.5rem', fontWeight: 700 }}>{profile?.title}</Styled.BannerTitle>
+        <Styled.BannerTitle style={{ fontWeight: 700 }}>{profile?.title}</Styled.BannerTitle>
         <Styled.BannerSubtitle>{profile?.description}</Styled.BannerSubtitle>
         <Styled.ButtonContainer>
           <Styled.Button 
             href="https://queb.online/cv" target="_blank" rel="noopener noreferrer"
-            style={{ fontSize: '1.5rem', fontWeight: 600 }}
+            style={{ fontWeight: 600 }}
             isDarkMode={isDarkMode}
           >Download CV</Styled.Button>
           <Styled.Button 
-            style={{ fontSize: '1.5rem', fontWeight: 600 }}
+            style={{ fontWeight: 600 }}
             isDarkMode={isDarkMode}
             href='#contact'
           >Contact me</Styled.Button>
