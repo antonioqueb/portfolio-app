@@ -98,4 +98,14 @@ export const Styled = {
 
   `,
 
+  SwitchWrapper : styled.div`
+  display: flex;
+  align-items: center;
+`,
+
+SwitchLabel : styled.label`
+  font-family: 'Roboto', sans-serif;
+  margin-right: 0.5rem;
+`,
+
 }
