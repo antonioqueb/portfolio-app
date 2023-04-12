@@ -19,6 +19,18 @@ export const Styled = {
         height: 100vh;
         display: flex;
         flex-direction: row;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 320px) {
+            flex-direction: column;
+        }
         `,
 
     LeftColumn : styled.div<BannerProps>`
@@ -32,6 +44,25 @@ export const Styled = {
         background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
         color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
         text-align: center;
+
+     
+        @media (max-width: 768px) {
+            flex-basis: 100%;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 480px) {
+            flex-basis: 100%;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 320px) {
+            flex-basis: 100%;
+            padding: 0 1rem;
+        }
+
+
+
         `,
 
     BannerTitle : styled.h1`
@@ -41,6 +72,19 @@ export const Styled = {
         display: flex;
         justify-content: flex-sratrt;
         flex-direction: column;
+
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 1.5rem;
+        }
         
         `,
 
@@ -51,6 +95,19 @@ export const Styled = {
         display: flex;
         justify-content: flex-sratrt;
         flex-direction: column;
+
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 1rem;
+        }
         `,
 
     Button : styled.a<ButtonProps>`
@@ -74,7 +131,20 @@ export const Styled = {
     text-decoration: none;
     color: white;
 
-    
+    @media (max-width: 768px) {
+        width: 10rem;
+        height: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+        width: 8rem;
+        height: 2rem;
+    }
+
+    @media (max-width: 320px) {
+        width: 6rem;
+        height: 1.5rem;
+    }
     
     
     strong {
@@ -85,6 +155,18 @@ export const Styled = {
         text-shadow: 0 0 4px white;
         text-decoration: none;
         position: relative;
+
+        @media (max-width: 768px) {
+            font-size: 10px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 8px;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 6px;
+        }
     }
     
     
@@ -100,6 +182,18 @@ export const Styled = {
         transform-origin: left;
         transition: transform 0.2s ease-out;
         color: #fffff;
+
+        @media (max-width: 768px) {
+            height: 1px;
+        }
+
+        @media (max-width: 480px) {
+            height: 1px;
+        }
+
+        @media (max-width: 320px) {
+            height: 1px;
+        }
     }
     
     
@@ -131,6 +225,21 @@ export const Styled = {
         filter: blur(2rem);
         animation: pulse_3011 4s infinite;
         z-index: -1;
+
+        @media (max-width: 768px) {
+            width: 8rem;
+            height: 20px;
+        }
+
+        @media (max-width: 480px) {
+            width: 6rem;
+            height: 15px;
+        }
+
+        @media (max-width: 320px) {
+            width: 4rem;
+            height: 10px;
+        }
         }
     
         .circle:nth-of-type(1) {
@@ -163,6 +272,21 @@ export const Styled = {
         background-clip: content-box, border-box;
         animation: none;
         color: #fffff;
+
+        @media (max-width: 768px) {
+            width: 10rem;
+            height: 2.5rem;
+        }
+
+        @media (max-width: 480px) {
+            width: 8rem;
+            height: 2rem;
+        }
+
+        @media (max-width: 320px) {
+            width: 6rem;
+            height: 1.5rem;
+        }
     
         .circle {
         background: #FE53BB;
@@ -259,6 +383,18 @@ export const Styled = {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 320px) {
+            flex-direction: column;
+        }
         `,
 
     RightColumn : styled.div<BannerProps>`
@@ -273,6 +409,22 @@ export const Styled = {
 
     Image : styled.img`
         width: 80%;
+
+        @media (max-width: 1200px) {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+
+        @media (max-width: 480px) {
+            width: 40;
+        }
+
+        @media (max-width: 320px) {
+            width: 35%;
+        }
     `,
 
 }
