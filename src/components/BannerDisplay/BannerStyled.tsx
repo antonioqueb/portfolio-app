@@ -425,6 +425,7 @@ export const Styled = {
         @media (max-width: 768px) {
             flex-basis: 100%;
             margin-top: 2rem;
+            display: none;
         
         }
 
@@ -453,11 +454,11 @@ export const Styled = {
 
         @media (max-width: 768px) {
             width: 80%;
+            display: none;
         }
 
         @media (max-width: 480px) {
             display: none;
-            width: 60%;
         }
 
         @media (max-width: 320px) {
