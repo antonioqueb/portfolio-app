@@ -158,7 +158,7 @@ export const Styled = {
     
     strong {
         z-index: 2;
-        font-size: 12px;
+        font-size: 19px;
         letter-spacing: 5px;
         color: #fffff;
         text-shadow: 0 0 4px white;
@@ -166,11 +166,11 @@ export const Styled = {
         position: relative;
 
         @media (max-width: 768px) {
-            font-size: 10px;
+            font-size: 15px;
         }
 
         @media (max-width: 480px) {
-            font-size: 8px;
+            font-size: 10px;
         }
 
         @media (max-width: 320px) {
