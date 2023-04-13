@@ -182,12 +182,12 @@ Title : styled.div`
   }
 
   @media (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 90%;
   }
 
   @media (max-width: 320px) {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     width: 90%;
   }
 `,
