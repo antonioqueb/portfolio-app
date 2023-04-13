@@ -20,7 +20,7 @@ export const Styled = {
 
 TitleP : styled.h1<{ isDarkMode: boolean }>`
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.2rem;
   color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'dark')};
   background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
   margin: 2rem 0;
@@ -28,6 +28,22 @@ TitleP : styled.h1<{ isDarkMode: boolean }>`
   align-items: center;
   justify-content: center;
   display: flex;
+
+  @media (max-width: 1024px) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 1.8rem;
+  }
 
 `,
 
@@ -39,6 +55,24 @@ ProjectsContainer : styled.div<{ isDarkMode: boolean }>`
   margin-top: 2rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? "#dark" : "#fff")};
   color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#dark")};
+
+  @media (max-width: 1024px) {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 320px) {
+    margin-top: 0.1rem;
+  }
+
+
 `,
 
 ProjectContainer : styled.div<{ isDarkMode: boolean }>`
@@ -48,6 +82,24 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? "#dark" : "#fffff")};
+
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+  }
+
+
   
 
 `,
@@ -56,6 +108,27 @@ Image : styled.img`
   width: 60%;
   height: auto;
   margin-right: 1rem;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-right: 0;
+
+  }
+
+  @media (max-width: 320px) {
+    width: 100%;
+    margin-right: 0;
+
+  }
+
 `,
 
 Description : styled.div`
@@ -63,19 +136,60 @@ Description : styled.div`
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  font-size: 1rem;
+  font-size: 1.6rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.9rem;
+  }
 `,
 
 Title : styled.div`
-  font-size: 1.2rem;
+  font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 1024px) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 1.8rem;
+  }
 `,
 
 ButtonRow : styled.div`
   display: flex;
   justify-content: flex-sratrt;
   margin-top: 1rem;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 320px) {
+    justify-content: center;
+  }
+  
   
 `,
 
