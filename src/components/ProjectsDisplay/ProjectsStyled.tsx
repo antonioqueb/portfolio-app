@@ -109,8 +109,8 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
 `,
 
 
-Image: styled.img`
-  position: relative;
+
+Image : styled.img`
   width: 60%;
   height: auto;
   margin-right: 1rem;
@@ -128,11 +128,13 @@ Image: styled.img`
   @media (max-width: 480px) {
     width: 50%;
     margin-right: 0;
+
   }
 
   @media (max-width: 320px) {
     width: 50%;
     margin-right: 0;
+
   }
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -142,19 +144,7 @@ Image: styled.img`
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid #000; /* Cambiar el color del borde según lo desees */
-    mix-blend-mode: multiply;
-    pointer-events: none; /* Esto hace que el pseudo-elemento no interfiera con los eventos del ratón */
-  }
 `,
-
 
 Description : styled.div`
   display: flex;
