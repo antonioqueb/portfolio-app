@@ -114,7 +114,8 @@ Image : styled.img`
   }
 
   @media (max-width: 768px) {
-    width: 40%;
+    width: 100%;
+    margin-right: 0;
   }
 
   @media (max-width: 480px) {
