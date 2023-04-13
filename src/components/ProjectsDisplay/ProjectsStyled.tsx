@@ -108,9 +108,9 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
 
 `,
 
-ImageContainer: styled.div`
+
+Image: styled.img`
   position: relative;
-  display: inline-block;
   width: 60%;
   height: auto;
   margin-right: 1rem;
@@ -134,38 +134,6 @@ ImageContainer: styled.div`
     width: 50%;
     margin-right: 0;
   }
-`,
-
-
-Image : styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  mix-blend-mode: multiply;
-
-  @media (max-width: 1620px) {
-    width: 60%;
-    margin-right: 0;
-  }
-
-  @media (max-width: 768px) {
-    width: 55%;
-    margin-right: 0;
-  }
-
-  @media (max-width: 480px) {
-    width: 50%;
-    margin-right: 0;
-
-  }
-
-  @media (max-width: 320px) {
-    width: 50%;
-    margin-right: 0;
-
-  }
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -174,7 +142,19 @@ Image : styled.img`
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #000; /* Cambiar el color del borde según lo desees */
+    mix-blend-mode: multiply;
+    pointer-events: none; /* Esto hace que el pseudo-elemento no interfiera con los eventos del ratón */
+  }
 `,
+
 
 Description : styled.div`
   display: flex;
