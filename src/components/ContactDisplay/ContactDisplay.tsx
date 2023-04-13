@@ -37,7 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
       <FormContainer>
         <ContactFormWrapper isDarkMode={isDarkMode} className={className}>
           <Heading isDarkMode={isDarkMode}>
-            <strong style={{ fontWeight: 500 }}>Do you have any questions?</strong>
+            <strong style={{ fontWeight: 600 }}>Do you have any questions?</strong>
           </Heading>
           <Form id="contact-form" onSubmit={onSubmit}>
             <Label isDarkMode={isDarkMode} style={{ fontSize: '1.5rem', fontWeight: 400 }} htmlFor="name">
@@ -45,19 +45,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             </Label>
             <Input id="name" type="text" name="name" required isDarkMode={isDarkMode} />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
-            <Label isDarkMode={isDarkMode} style={{ fontSize: '1.5rem', fontWeight: 400 }} htmlFor="email">
+            <Label isDarkMode={isDarkMode} style={{  fontWeight: 400 }} htmlFor="email">
               Email:
             </Label>
             <Input id="email" type="email" name="email" required isDarkMode={isDarkMode} />
             <ValidationError prefix="Email" field="email" errors={state.errors} />
-            <Label isDarkMode={isDarkMode} style={{ fontSize: '1.5rem', fontWeight: 400 }} htmlFor="message">
+            <Label isDarkMode={isDarkMode} style={{ fontWeight: 400 }} htmlFor="message">
               Message:
             </Label>
             <TextArea id="message" name="message" required isDarkMode={isDarkMode} />
             <ValidationError prefix="Message" field="message" errors={state.errors} />
             <SubmitButton isDarkMode={isDarkMode} type="submit" disabled={state.submitting || submitted}>
             <a href="#">
-              <strong>CONTACT ME!</strong>
+              <strong>Send</strong>
             </a>
             <div id="container-stars">
               <div id="glow">

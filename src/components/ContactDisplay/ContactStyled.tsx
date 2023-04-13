@@ -17,55 +17,24 @@ export const Heading = styled.h2<StyledProps>`
   color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
   justify-content: center;
   align-items: center;
-  font-size: 3.2rem;
+  font-size: 2.8rem;
 
-  @media (max-width: 1620px) {
-    font-size: 2.8rem;
-  }
-
-  @media (max-width: 1440px) {
+  @media (max-width: 1024px) {
     font-size: 2.4rem;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 768px) {
     font-size: 2rem;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 480px) {
     font-size: 1.6rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 320px) {
     font-size: 1.2rem;
   }
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 280px) {
-    font-size: 0.6rem;
-  }
-
-  @media (max-width: 240px) {
-    font-size: 0.4rem;
-  }
-
-  @media (max-width: 200px) {
-    font-size: 0.2rem;
-  }
-
-  @media (max-width: 160px) {
-    font-size: 0.1rem;
-  }
-
-  @media (max-width: 120px) {
-    font-size: 0.05rem;
-  }
 
 `;
 
