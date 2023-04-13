@@ -21,18 +21,22 @@ export const Heading = styled.h2<StyledProps>`
 
   @media (max-width: 1024px) {
     font-size: 2.8rem;
+    margin; 0 0 1.3rem;
   }
 
   @media (max-width: 768px) {
     font-size: 2.4rem;
+    margin; 0 0 1.3rem;
   }
 
   @media (max-width: 480px) {
     font-size: 2rem;
+    margin; 0 0 1.3rem;
   }
 
   @media (max-width: 320px) {
     font-size: 1.8rem;
+    margin; 0 0 1.3rem;
   }
 
 
