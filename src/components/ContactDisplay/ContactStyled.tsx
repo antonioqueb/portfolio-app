@@ -284,12 +284,12 @@ export const FormContainer = styled.div`
 
   
   @media (max-width: 1024px) {
-    max-width: 50%;
+    max-width: 90%;
   }
   
 
   @media (max-width: 768px) {
-    max-width: 90%;
+    max-width: 95%;
   }
 
   @media (max-width: 480px) {
