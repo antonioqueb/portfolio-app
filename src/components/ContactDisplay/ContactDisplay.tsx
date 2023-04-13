@@ -40,7 +40,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             <strong style={{ fontWeight: 600 }}>Do you have any questions?</strong>
           </Heading>
           <Form id="contact-form" onSubmit={onSubmit}>
-            <Label isDarkMode={isDarkMode} style={{ fontSize: '1.5rem', fontWeight: 400 }} htmlFor="name">
+            <Label isDarkMode={isDarkMode} style={{ fontWeight: 400 }} htmlFor="name">
               Name:
             </Label>
             <Input id="name" type="text" name="name" required isDarkMode={isDarkMode} />
@@ -57,7 +57,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             <ValidationError prefix="Message" field="message" errors={state.errors} />
             <SubmitButton isDarkMode={isDarkMode} type="submit" disabled={state.submitting || submitted}>
             <a href="#">
-              <strong>Send</strong>
+              <strong>Go</strong>
             </a>
             <div id="container-stars">
               <div id="glow">
@@ -82,7 +82,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               }}
             >
               <p>
-                Thank you for your message! I will get back to you soon.
+              Thank you for your message! I appreciate your interest and will respond as soon as possible. Have a great day!
               </p>
             </div>
           )}

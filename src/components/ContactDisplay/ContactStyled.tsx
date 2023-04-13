@@ -278,18 +278,18 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 30%;
+  max-width: 70%;
   min-width: 300px;
   margin: 0 auto;
 
   
   @media (max-width: 1024px) {
-    max-width: 90%;
+    max-width: 80%;
   }
   
 
   @media (max-width: 768px) {
-    max-width: 95%;
+    max-width: 90%;
   }
 
   @media (max-width: 480px) {
