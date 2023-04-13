@@ -124,13 +124,13 @@ Image : styled.img`
   }
 
   @media (max-width: 480px) {
-    width: 35%;
+    width: 40%;
     margin-right: 0;
 
   }
 
   @media (max-width: 320px) {
-    width: 30%;
+    width: 40%;
     margin-right: 0;
 
   }
