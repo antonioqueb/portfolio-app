@@ -83,7 +83,7 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
   padding: 1rem;
   background-color: ${({ isDarkMode }) => (isDarkMode ? "#dark" : "#fffff")};
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1620px) {
     width: 95%;
     flex-direction: column;
   }
