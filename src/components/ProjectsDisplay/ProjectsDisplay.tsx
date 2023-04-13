@@ -60,7 +60,14 @@ const Projects = () => {
       <Styled.TitleP style={{  fontWeight: 400 }} isDarkMode={isDarkMode}>Here you will find my latest projects.</Styled.TitleP>
       {projects.map((project) => (
         <Styled.ProjectContainer key={project.id} isDarkMode={isDarkMode}>
-          <Styled.Image
+          <Styled.ImageContainer
+              style={{ backgroundImage: `url(${project.image_url})` }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Styled.Image src={project.image_url} alt={project.title} />
+            </Styled.ImageContainer>
+            <Styled.Image
             src={project.image_url}
             alt={project.title}
             onMouseMove={handleMouseMove}

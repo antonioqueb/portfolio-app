@@ -108,10 +108,42 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
 
 `,
 
-Image : styled.img`
+ImageContainer: styled.div`
+  position: relative;
+  display: inline-block;
   width: 60%;
   height: auto;
   margin-right: 1rem;
+
+  @media (max-width: 1620px) {
+    width: 60%;
+    margin-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 55%;
+    margin-right: 0;
+  }
+
+  @media (max-width: 480px) {
+    width: 50%;
+    margin-right: 0;
+  }
+
+  @media (max-width: 320px) {
+    width: 50%;
+    margin-right: 0;
+  }
+`,
+
+
+Image : styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
 
   @media (max-width: 1620px) {
     width: 60%;
