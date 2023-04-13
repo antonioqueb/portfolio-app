@@ -37,7 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
       <FormContainer>
         <ContactFormWrapper isDarkMode={isDarkMode} className={className}>
           <Heading isDarkMode={isDarkMode}>
-            <strong style={{ fontSize: '2.5rem', fontWeight: 700 }}>CONTACT ME</strong>
+            <strong style={{ fontWeight: 500 }}>Do you have any questions?</strong>
           </Heading>
           <Form id="contact-form" onSubmit={onSubmit}>
             <Label isDarkMode={isDarkMode} style={{ fontSize: '1.5rem', fontWeight: 400 }} htmlFor="name">
