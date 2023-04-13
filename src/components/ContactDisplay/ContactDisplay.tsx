@@ -34,6 +34,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
 
   return (
     <Container id='contact'>
+                <br/>
+
+                <br/>
+
+                <br/>
+
       <FormContainer>
         <ContactFormWrapper isDarkMode={isDarkMode} className={className}>
           <Heading isDarkMode={isDarkMode}>
