@@ -108,8 +108,6 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
 
 `,
 
-
-
 Image : styled.img`
   width: 60%;
   height: auto;
@@ -135,13 +133,6 @@ Image : styled.img`
     width: 50%;
     margin-right: 0;
 
-  }
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: perspective(600px) rotateX(20deg) rotateY(20deg) scale(1.05);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
   }
 
 `,
