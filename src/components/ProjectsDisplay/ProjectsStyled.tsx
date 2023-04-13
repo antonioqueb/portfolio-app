@@ -114,23 +114,23 @@ Image : styled.img`
   margin-right: 1rem;
 
   @media (max-width: 1620px) {
-    width: 40%;
+    width: 60%;
     margin-right: 0;
   }
 
   @media (max-width: 768px) {
-    width: 40%;
+    width: 55%;
     margin-right: 0;
   }
 
   @media (max-width: 480px) {
-    width: 40%;
+    width: 50%;
     margin-right: 0;
 
   }
 
   @media (max-width: 320px) {
-    width: 40%;
+    width: 50%;
     margin-right: 0;
 
   }
