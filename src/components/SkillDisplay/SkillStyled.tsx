@@ -48,6 +48,15 @@ export const SkillStyled = {
     margin-right: 20px;
     margin: auto;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+  
   `,
 
   Logo: styled.img<{ isDarkMode: boolean }>`
@@ -55,6 +64,21 @@ export const SkillStyled = {
     height: 100%;
     object-fit: contain;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+
+    @media (max-width: 768px) {
+      width: 50%;
+      height: 50%;
+    }
+
+    @media (max-width: 480px) {
+      width: 40%;
+      height: 40%;
+    }
+
+    @media (max-width: 320px) {
+      width: 30%;
+      height: 30%;
+    }
   `,
 
   ButtonContainer: styled.div`
