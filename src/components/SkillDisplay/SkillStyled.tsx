@@ -40,6 +40,10 @@ export const SkillStyled = {
     margin: 0 auto;
     justify-content: center;
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 
   LogoContainer: styled.div<{ isDarkMode: boolean }>`
