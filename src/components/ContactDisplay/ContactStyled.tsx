@@ -95,7 +95,7 @@ export const SubmitButton = styled.button<StyledProps>`
 
   strong {
     z-index: 2;
-    font-size: 12px;
+    font-size: 2remx;
     letter-spacing: 5px;
     color: #FFFFFF;
     text-shadow: 0 0 4px white;
