@@ -17,22 +17,22 @@ export const Heading = styled.h2<StyledProps>`
   color: ${({ isDarkMode }) => (isDarkMode ? '#ffffff' : '#222831')};
   justify-content: center;
   align-items: center;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
 
   @media (max-width: 1024px) {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   @media (max-width: 320px) {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
 
