@@ -93,10 +93,12 @@ ProjectContainer : styled.div<{ isDarkMode: boolean }>`
 
   @media (max-width: 480px) {
     flex-direction: column;
+    width: 95%;
   }
 
   @media (max-width: 320px) {
     flex-direction: column;
+    width: 95%;
   }
 
 
@@ -145,14 +147,18 @@ Description : styled.div`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
+    width: 70%;
+
   }
 
   @media (max-width: 480px) {
     font-size: 1rem;
+    width: 80%;
   }
 
   @media (max-width: 320px) {
     font-size: 0.9rem;
+    width: 90%;
   }
 `,
 
@@ -160,21 +166,26 @@ Title : styled.div`
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  width: 90%;
 
   @media (max-width: 1024px) {
     font-size: 2.8rem;
+    width: 90%;
   }
 
   @media (max-width: 768px) {
     font-size: 2.4rem;
+    width: 90%;
   }
 
   @media (max-width: 480px) {
     font-size: 2rem;
+    width: 90%;
   }
 
   @media (max-width: 320px) {
     font-size: 1.8rem;
+    width: 90%;
   }
 `,
 
