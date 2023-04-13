@@ -22,6 +22,30 @@ interface Project {
 ;
 
 const Projects = () => {
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+    const image = e.currentTarget;
+    const rect = image.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const percentX = (mouseX - centerX) / centerX;
+    const percentY = (mouseY - centerY) / centerY;
+
+    image.style.transform = `perspective(600px) rotateX(${-percentY * 10}deg) rotateY(${percentX * 10}deg)`;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
+    const image = e.currentTarget;
+    image.style.transform = 'perspective(600px) rotateX(0) rotateY(0)';
+  };
+
+
+
+
   const isDarkMode = useSelector(selectIsDarkMode);
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -36,7 +60,12 @@ const Projects = () => {
       <Styled.TitleP style={{  fontWeight: 400 }} isDarkMode={isDarkMode}>Here you will find my latest projects.</Styled.TitleP>
       {projects.map((project) => (
         <Styled.ProjectContainer key={project.id} isDarkMode={isDarkMode}>
-          <Styled.Image src={project.image_url} alt={project.title} />
+          <Styled.Image
+            src={project.image_url}
+            alt={project.title}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          />
           <Styled.Description>
             <Styled.Title
             style={{ fontWeight: 600 }}

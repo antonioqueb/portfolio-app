@@ -135,6 +135,13 @@ Image : styled.img`
 
   }
 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: perspective(600px) rotateX(20deg) rotateY(20deg) scale(1.05);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  }
+
 `,
 
 Description : styled.div`
