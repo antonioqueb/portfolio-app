@@ -39,7 +39,7 @@ const Projects = () => {
           <Styled.Image src={project.image_url} alt={project.title} />
           <Styled.Description>
             <Styled.Title
-            style={{ fontWeight: 700 }}
+            style={{ fontWeight: 600 }}
             
             >{project.title}</Styled.Title>
             <div
