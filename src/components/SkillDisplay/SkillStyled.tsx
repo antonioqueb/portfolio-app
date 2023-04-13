@@ -28,6 +28,10 @@ export const SkillStyled = {
     align-items: center;
     justify-content: center;
     display: flex;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 
   Container: styled.div<{ isDarkMode: boolean }>`
@@ -60,6 +64,10 @@ export const SkillStyled = {
     -ms-overflow-style: none;
     scrollbar-width: none;
 
+    @media (max-width: 768px) {
+      display: none;
+    }
+
   
   `,
 
@@ -91,6 +99,10 @@ export const SkillStyled = {
     align-items: center;
     width: 100%;
     margin-top: 20px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 
   Button: styled.button`
@@ -100,11 +112,18 @@ export const SkillStyled = {
     font-size: 2rem;
     cursor: pointer;
     margin: 0 10px;
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 
   Background: styled.div<{ isDarkMode: boolean }>`
     background-color: ${({ isDarkMode }) => (isDarkMode ? 'dark' : 'white')};
     width: 100%;
     height: 100%;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   `,
 };
