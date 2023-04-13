@@ -282,7 +282,21 @@ export const FormContainer = styled.div`
   min-width: 300px;
   margin: 0 auto;
 
+  
+  @media (max-width: 1024px) {
+    max-width: 50%;
+  }
+  
+
   @media (max-width: 768px) {
     max-width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 100%;
   }
 `;
